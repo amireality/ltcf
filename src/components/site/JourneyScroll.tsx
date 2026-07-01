@@ -132,9 +132,10 @@ function Story({
   mid: number;
   end: number;
 }) {
+  const c = (n: number) => Math.max(0, Math.min(1, n));
   const opacity = useTransform(
     progress,
-    [start - 0.02, start + 0.03, mid, end - 0.03, end + 0.02],
+    [c(start - 0.02), c(start + 0.03), mid, c(end - 0.03), c(end + 0.02)],
     [0, 0.25, 1, 0.25, 0]
   );
   const y = useTransform(progress, [start, mid, end], [60, 0, -60]);
