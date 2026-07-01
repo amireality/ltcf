@@ -175,7 +175,7 @@
   color: var(--color-teal);
 }
 
-@utility eyebrow::before {
+.eyebrow::before {
   content: "";
   display: inline-block;
   width: 1.5rem;
@@ -189,7 +189,7 @@
   border-radius: var(--radius-2xl);
 }
 
-@utility tinted-photo::after {
+.tinted-photo::after {
   content: "";
   position: absolute;
   inset: 0;
