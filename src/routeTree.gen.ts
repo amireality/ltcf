@@ -9,38 +9,154 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
+import { Route as DonateRouteImport } from './routes/donate'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KnowledgeIndexRouteImport } from './routes/knowledge.index'
+import { Route as ImpactIndexRouteImport } from './routes/impact.index'
+import { Route as KnowledgeSlugRouteImport } from './routes/knowledge.$slug'
+import { Route as ImpactSlugRouteImport } from './routes/impact.$slug'
 
+const WhoWeAreRoute = WhoWeAreRouteImport.update({
+  id: '/who-we-are',
+  path: '/who-we-are',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KnowledgeIndexRoute = KnowledgeIndexRouteImport.update({
+  id: '/knowledge/',
+  path: '/knowledge/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactIndexRoute = ImpactIndexRouteImport.update({
+  id: '/impact/',
+  path: '/impact/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeSlugRoute = KnowledgeSlugRouteImport.update({
+  id: '/knowledge/$slug',
+  path: '/knowledge/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactSlugRoute = ImpactSlugRouteImport.update({
+  id: '/impact/$slug',
+  path: '/impact/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/who-we-are': typeof WhoWeAreRoute
+  '/impact/$slug': typeof ImpactSlugRoute
+  '/knowledge/$slug': typeof KnowledgeSlugRoute
+  '/impact/': typeof ImpactIndexRoute
+  '/knowledge/': typeof KnowledgeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/who-we-are': typeof WhoWeAreRoute
+  '/impact/$slug': typeof ImpactSlugRoute
+  '/knowledge/$slug': typeof KnowledgeSlugRoute
+  '/impact': typeof ImpactIndexRoute
+  '/knowledge': typeof KnowledgeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
+  '/who-we-are': typeof WhoWeAreRoute
+  '/impact/$slug': typeof ImpactSlugRoute
+  '/knowledge/$slug': typeof KnowledgeSlugRoute
+  '/impact/': typeof ImpactIndexRoute
+  '/knowledge/': typeof KnowledgeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/donate'
+    | '/who-we-are'
+    | '/impact/$slug'
+    | '/knowledge/$slug'
+    | '/impact/'
+    | '/knowledge/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/donate'
+    | '/who-we-are'
+    | '/impact/$slug'
+    | '/knowledge/$slug'
+    | '/impact'
+    | '/knowledge'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/donate'
+    | '/who-we-are'
+    | '/impact/$slug'
+    | '/knowledge/$slug'
+    | '/impact/'
+    | '/knowledge/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  DonateRoute: typeof DonateRoute
+  WhoWeAreRoute: typeof WhoWeAreRoute
+  ImpactSlugRoute: typeof ImpactSlugRoute
+  KnowledgeSlugRoute: typeof KnowledgeSlugRoute
+  ImpactIndexRoute: typeof ImpactIndexRoute
+  KnowledgeIndexRoute: typeof KnowledgeIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/who-we-are': {
+      id: '/who-we-are'
+      path: '/who-we-are'
+      fullPath: '/who-we-are'
+      preLoaderRoute: typeof WhoWeAreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +164,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/knowledge/': {
+      id: '/knowledge/'
+      path: '/knowledge'
+      fullPath: '/knowledge/'
+      preLoaderRoute: typeof KnowledgeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact/': {
+      id: '/impact/'
+      path: '/impact'
+      fullPath: '/impact/'
+      preLoaderRoute: typeof ImpactIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge/$slug': {
+      id: '/knowledge/$slug'
+      path: '/knowledge/$slug'
+      fullPath: '/knowledge/$slug'
+      preLoaderRoute: typeof KnowledgeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact/$slug': {
+      id: '/impact/$slug'
+      path: '/impact/$slug'
+      fullPath: '/impact/$slug'
+      preLoaderRoute: typeof ImpactSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  DonateRoute: DonateRoute,
+  WhoWeAreRoute: WhoWeAreRoute,
+  ImpactSlugRoute: ImpactSlugRoute,
+  KnowledgeSlugRoute: KnowledgeSlugRoute,
+  ImpactIndexRoute: ImpactIndexRoute,
+  KnowledgeIndexRoute: KnowledgeIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
