@@ -3,9 +3,11 @@ import { ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { StatCounter } from "@/components/site/StatCounter";
 import { FadeUp } from "@/components/site/FadeUp";
+import { JourneyScroll } from "@/components/site/JourneyScroll";
 import { stats, themes, articles, site } from "@/content/site";
 import heroImg from "@/assets/hero-portrait.jpg";
 import journeyImg from "@/assets/journey.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,63 +29,117 @@ const toneMap: Record<string, string> = {
 function Home() {
   return (
     <SiteShell>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full bg-lavender/40 blur-3xl" />
-        <div className="pointer-events-none absolute top-40 -right-32 h-[360px] w-[360px] rounded-full bg-teal/15 blur-3xl" />
+      {/* HERO — layered editorial composition */}
+      <section className="relative overflow-hidden bg-cream">
+        <div className="pointer-events-none absolute -top-24 -right-24 h-[420px] w-[420px] rounded-full bg-lavender/25 blur-3xl" />
+        <div className="container-ltcf relative pt-14 md:pt-24 pb-28 md:pb-40">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
+            {/* Narrative */}
+            <div className="lg:col-span-6 space-y-10">
+              <div className="space-y-5">
+                <div className="flex items-center gap-4">
+                  <span className="h-px w-12 bg-lavender" />
+                  <p className="text-xs font-bold tracking-[0.22em] uppercase text-ink">
+                    Est. 2011 · 14 years of quiet work
+                  </p>
+                </div>
+                <h1 className="text-ink text-5xl md:text-6xl lg:text-[76px] font-semibold leading-[0.95] tracking-[-0.03em]">
+                  Restoring{" "}
+                  <span className="text-lavender italic font-light">dignity</span>
+                  <br />
+                  through shared action.
+                </h1>
+              </div>
 
-        <div className="container-ltcf relative pt-14 md:pt-24 pb-20 md:pb-32">
-          <div className="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:items-end">
-            <div>
-              <span className="eyebrow">Est. 2011 · India</span>
-              <h1 className="mt-6 text-[44px] leading-[1.02] md:text-6xl lg:text-[76px] font-semibold tracking-[-0.03em]">
-                Care, in every{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10">corner.</span>
-                  <span className="absolute inset-x-0 bottom-1 md:bottom-2 h-3 md:h-4 bg-lavender/70 -z-0 rounded-sm" />
-                </span>
-              </h1>
-              <p className="mt-7 max-w-xl text-lg md:text-xl text-foreground/75 leading-relaxed">
+              <p className="text-lg md:text-xl text-foreground/70 max-w-lg leading-relaxed">
                 {site.mission}
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap gap-5 items-center">
                 <Link
                   to="/donate"
-                  className="group inline-flex items-center gap-2 rounded-full bg-teal px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-teal-deep hover:shadow-lg"
+                  className="group inline-flex items-center gap-2 rounded-sm bg-teal px-8 py-4 text-sm font-bold tracking-tight text-primary-foreground shadow-xl shadow-teal/20 hover:-translate-y-0.5 transition-all"
                 >
-                  Support our work
+                  Partner with us
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
                 <Link
-                  to="/impact"
-                  className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-6 py-3.5 text-sm font-semibold text-foreground hover:border-ink/40 transition-colors"
+                  to="/who-we-are"
+                  className="group inline-flex items-center gap-3 text-sm font-bold tracking-tight text-ink"
                 >
-                  See our work
+                  <span className="h-12 w-12 grid place-items-center rounded-full border border-ink/20 group-hover:bg-lavender/15 transition-colors">
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                  Our story
                 </Link>
+              </div>
+
+              <div className="pt-8 flex gap-12 border-t border-ink/10">
+                <div>
+                  <p className="text-2xl font-bold text-ink">05</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                    Impact themes
+                  </p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-ink">9 states</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                    On the ground
+                  </p>
+                </div>
+                <div className="hidden sm:block">
+                  <p className="text-2xl font-bold text-ink">₹0 comms</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                    No ad spend, ever
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="relative">
-              <div className="tinted-photo aspect-[4/5]">
-                <img
-                  src={heroImg}
-                  alt="A community teacher reading with two young girls on a woven mat in a sunlit courtyard."
-                  width={1024}
-                  height={1280}
-                  className="h-full w-full object-cover"
-                />
+            {/* Visual */}
+            <div className="lg:col-span-6 relative flex items-center justify-center min-h-[520px]">
+              <div className="relative z-10 w-full max-w-md aspect-[3/4] group">
+                <div className="absolute -inset-4 border-2 border-lavender -z-10 translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
+                <div className="tinted-photo h-full w-full overflow-hidden">
+                  <img
+                    src={heroImg}
+                    alt="A community teacher reading with two young girls on a woven mat in a sunlit courtyard."
+                    width={1024}
+                    height={1280}
+                    className="h-full w-full object-cover transition-all duration-700 group-hover:scale-[1.02]"
+                  />
+                </div>
+
+                {/* Overlapping field-note card */}
+                <div className="absolute -bottom-10 -left-6 md:-left-16 bg-background p-5 shadow-2xl max-w-[260px] hidden sm:block border border-border">
+                  <div className="tinted-photo aspect-[16/9] mb-4 overflow-hidden">
+                    <img
+                      src={journeyImg}
+                      alt="Hands meeting over a cup of chai."
+                      width={400}
+                      height={225}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.16em] text-teal font-bold">Field note</p>
+                  <p className="mt-2 text-xs font-semibold leading-relaxed text-foreground/80">
+                    “We don't arrive with answers. We arrive with time.” — Ritu, programme lead
+                  </p>
+                </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 hidden md:block max-w-[240px] rounded-2xl bg-background p-4 shadow-lg border border-border">
-                <p className="text-xs uppercase tracking-[0.16em] text-teal font-semibold">Field note</p>
-                <p className="mt-2 text-sm leading-snug text-foreground/80">
-                  “We don't arrive with answers. We arrive with time.” — Ritu, programme lead
-                </p>
+
+              {/* Marginalia */}
+              <div className="absolute top-1/2 -right-6 lg:-right-10 -translate-y-1/2 rotate-90 hidden md:block pointer-events-none">
+                <span className="text-[120px] font-black text-ink/[0.04] select-none leading-none tracking-tighter">
+                  LTCF
+                </span>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* STATS */}
       <section className="border-y border-border/60 bg-background">
@@ -136,43 +192,27 @@ function Home() {
         </div>
       </section>
 
-      {/* JOURNEY TEASE */}
-      <section className="bg-lavender-soft/60">
-        <div className="container-ltcf py-24 md:py-32">
-          <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-            <div>
-              <span className="eyebrow">Our journey</span>
-              <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
-                From a kitchen table to nine states.
-              </h2>
-              <p className="mt-6 text-lg text-foreground/75 leading-relaxed max-w-lg">
-                LTCF was never planned as an organisation. It grew slowly,
-                one conversation at a time. Walk with us through the years
-                that shaped it.
-              </p>
-              <Link
-                to="/who-we-are"
-                className="mt-8 inline-flex items-center gap-2 rounded-full border border-ink/20 bg-background px-6 py-3.5 text-sm font-semibold hover:border-ink/50 transition-colors"
-              >
-                Read the full story
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-            <div className="relative">
-              <div className="tinted-photo aspect-[5/4]">
-                <img
-                  src={journeyImg}
-                  alt="Hands of an older woman and a younger volunteer meeting over a cup of chai."
-                  width={1280}
-                  height={1024}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
+      {/* JOURNEY — sticky half-viewport scroll-linked timeline */}
+      <JourneyScroll />
+
+      {/* JOURNEY CTA */}
+      <section className="bg-cream border-b border-border/60">
+        <div className="container-ltcf py-16 md:py-20 flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="eyebrow">Since 2002</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">
+              Twenty-four years of quiet, community-first work.
+            </h2>
           </div>
+          <Link
+            to="/who-we-are"
+            className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-background px-6 py-3.5 text-sm font-semibold hover:border-ink/50 transition-colors"
+          >
+            Read the full story <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
+
 
       {/* KNOWLEDGE */}
       <section className="container-ltcf py-24 md:py-32">
