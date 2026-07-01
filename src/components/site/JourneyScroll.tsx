@@ -85,9 +85,10 @@ function Year({
   mid: number;
   end: number;
 }) {
+  const c = (n: number) => Math.max(0, Math.min(1, n));
   const opacity = useTransform(
     progress,
-    [start - 0.02, start + 0.02, mid, end - 0.02, end + 0.02],
+    [c(start - 0.02), c(start + 0.02), mid, c(end - 0.02), c(end + 0.02)],
     [0, 0.35, 1, 0.35, 0]
   );
   const y = useTransform(progress, [start, mid, end], [40, 0, -40]);
@@ -100,6 +101,7 @@ function Year({
     </motion.span>
   );
 }
+
 
 function StoryStack({ progress }: { progress: ReturnType<typeof useScroll>["scrollYProgress"] }) {
   const steps = milestones.length;
