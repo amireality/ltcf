@@ -68,7 +68,7 @@ function ThemePage() {
           <span className="eyebrow">How we work</span>
         </div>
         <ul className="space-y-6 text-lg text-foreground/85 leading-relaxed">
-          {theme.approach.map((a, i) => (
+          {theme.approach.map((a: string, i: number) => (
             <FadeUp key={i} delay={i * 0.05}>
               <li className="flex gap-5">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-teal" />
@@ -83,7 +83,7 @@ function ThemePage() {
         <div className="container-ltcf py-20 md:py-24">
           <span className="eyebrow">In numbers</span>
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {theme.numbers.map((n) => (
+            {theme.numbers.map((n: { value: string; label: string }) => (
               <div key={n.label}>
                 <p className="text-5xl md:text-6xl font-semibold tracking-tight text-teal-deep">{n.value}</p>
                 <p className="mt-3 text-sm uppercase tracking-[0.16em] text-muted-foreground">{n.label}</p>

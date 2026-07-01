@@ -53,7 +53,7 @@ function ArticlePage() {
         </p>
         <div className="mt-12 tinted-photo aspect-[16/8] bg-lavender/40" />
         <div className="mt-12 space-y-6 text-lg text-foreground/85 leading-relaxed">
-          {article.body.map((p, i) => (
+          {article.body.map((p: string, i: number) => (
             <p key={i}>{p}</p>
           ))}
         </div>
