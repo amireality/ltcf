@@ -94,7 +94,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Love To Care Foundation" },
+      { name: "twitter:title", content: "Love To Care Foundation — Care, in every corner." },
+      { name: "description", content: "Lovable Launchpad is a website builder that leverages AI to create and host client websites." },
+      { property: "og:description", content: "Lovable Launchpad is a website builder that leverages AI to create and host client websites." },
+      { name: "twitter:description", content: "Lovable Launchpad is a website builder that leverages AI to create and host client websites." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ccb56e22-4741-4b48-9fc4-c3a6e9cbcec0/id-preview-d8fb1fb2--5a54259f-7679-4b2b-8054-87a31ff87e83.lovable.app-1782918819685.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ccb56e22-4741-4b48-9fc4-c3a6e9cbcec0/id-preview-d8fb1fb2--5a54259f-7679-4b2b-8054-87a31ff87e83.lovable.app-1782918819685.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
