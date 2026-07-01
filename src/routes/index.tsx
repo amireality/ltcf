@@ -40,7 +40,7 @@ function Home() {
                 <div className="flex items-center gap-4">
                   <span className="h-px w-12 bg-lavender" />
                   <p className="text-xs font-bold tracking-[0.22em] uppercase text-ink">
-                    Est. 2011 · 14 years of quiet work
+                    EST. 2002 · 24 YEARS OF QUIET WORK
                   </p>
                 </div>
                 <h1 className="text-ink text-5xl md:text-6xl lg:text-[76px] font-semibold leading-[0.95] tracking-[-0.03em]">
@@ -60,7 +60,7 @@ function Home() {
                   to="/donate"
                   className="group inline-flex items-center gap-2 rounded-sm bg-teal px-8 py-4 text-sm font-bold tracking-tight text-primary-foreground shadow-xl shadow-teal/20 hover:-translate-y-0.5 transition-all"
                 >
-                  Partner with us
+                  Donate
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
                 <Link

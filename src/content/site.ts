@@ -6,7 +6,7 @@ export const site = {
   short: "LTCF",
   tagline: "Care, in every corner.",
   mission:
-    "We build quiet, lasting change with communities across India — through education, health, livelihood and dignity.",
+    "We build quiet, lasting change with communities across India - through education, health, livelihood and dignity.",
   location: "Bhopal, Madhya Pradesh, India",
   email: "hello@lovetocare.org",
   phone: "+91 00000 00000",
