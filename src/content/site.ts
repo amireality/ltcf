@@ -167,7 +167,9 @@ export const themes: Theme[] = [
 ];
 
 export const milestones = [
-  { year: "2011", title: "A kitchen table beginning", body: "Five friends pooled ₹2,000 a month to fund school supplies for 12 children in a Bhopal basti." },
+  { year: "2002", title: "The seed of an idea", body: "A group of college friends in Bhopal begin weekend tuition classes for children in a nearby basti. No name, no plan — just a Sunday habit that refused to end." },
+  { year: "2006", title: "An informal collective", body: "The Sunday habit becomes a monthly pool of ₹500 each. Books, notebooks, one second-hand blackboard. Still no letterhead." },
+  { year: "2011", title: "A kitchen table beginning", body: "Registered as Love To Care Foundation. Five friends pool ₹2,000 a month to fund school supplies for 12 children in a Bhopal basti." },
   { year: "2014", title: "First learning centre", body: "Opened in a two-room space near Karond, serving 60 first-generation learners with two teachers." },
   { year: "2017", title: "Health circle", body: "Launched maternal health camps across 6 villages in partnership with local ASHA workers." },
   { year: "2020", title: "Pandemic response", body: "Distributed 42,000 ration kits, moved learning to community radio, and lost two friends we will not forget." },
