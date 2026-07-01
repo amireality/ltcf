@@ -192,43 +192,27 @@ function Home() {
         </div>
       </section>
 
-      {/* JOURNEY TEASE */}
-      <section className="bg-lavender-soft/60">
-        <div className="container-ltcf py-24 md:py-32">
-          <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-            <div>
-              <span className="eyebrow">Our journey</span>
-              <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
-                From a kitchen table to nine states.
-              </h2>
-              <p className="mt-6 text-lg text-foreground/75 leading-relaxed max-w-lg">
-                LTCF was never planned as an organisation. It grew slowly,
-                one conversation at a time. Walk with us through the years
-                that shaped it.
-              </p>
-              <Link
-                to="/who-we-are"
-                className="mt-8 inline-flex items-center gap-2 rounded-full border border-ink/20 bg-background px-6 py-3.5 text-sm font-semibold hover:border-ink/50 transition-colors"
-              >
-                Read the full story
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-            <div className="relative">
-              <div className="tinted-photo aspect-[5/4]">
-                <img
-                  src={journeyImg}
-                  alt="Hands of an older woman and a younger volunteer meeting over a cup of chai."
-                  width={1280}
-                  height={1024}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
+      {/* JOURNEY — sticky half-viewport scroll-linked timeline */}
+      <JourneyScroll />
+
+      {/* JOURNEY CTA */}
+      <section className="bg-cream border-b border-border/60">
+        <div className="container-ltcf py-16 md:py-20 flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="eyebrow">Since 2002</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">
+              Twenty-four years of quiet, community-first work.
+            </h2>
           </div>
+          <Link
+            to="/who-we-are"
+            className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-background px-6 py-3.5 text-sm font-semibold hover:border-ink/50 transition-colors"
+          >
+            Read the full story <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
+
 
       {/* KNOWLEDGE */}
       <section className="container-ltcf py-24 md:py-32">
