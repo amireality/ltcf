@@ -13,9 +13,10 @@ export const Route = createFileRoute("/knowledge/$slug")({
     meta: loaderData
       ? [
           { title: `${loaderData.article.title} — LTCF` },
-          { name: "description", content: `${loaderData.article.kicker} from Love To Care Foundation — ${loaderData.article.minutes} min read.` },
+          { name: "description", content: loaderData.article.dek },
           { property: "og:title", content: loaderData.article.title },
-          { property: "og:description", content: `${loaderData.article.kicker} · ${loaderData.article.minutes} min read.` },
+          { property: "og:description", content: loaderData.article.dek },
+          { property: "og:type", content: "article" },
         ]
       : [],
   }),
@@ -44,17 +45,34 @@ function ArticlePage() {
         <h1 className="mt-5 text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
           {article.title}
         </h1>
+        <p className="mt-6 text-xl text-foreground/70 leading-relaxed">
+          {article.dek}
+        </p>
+        <p className="mt-8 text-sm text-muted-foreground">
+          By {article.author} · {article.date}
+        </p>
         <div className="mt-12 tinted-photo aspect-[16/8] bg-lavender/40" />
-        <div className="mt-12 space-y-6 text-lg text-foreground/80 leading-relaxed">
-          <p>
-            This is a placeholder body for the article. Full text will be added
-            in the next content pass — or wired up to Lovable Cloud so the LTCF
-            team can publish directly from an admin panel.
-          </p>
-          <p>
-            Each article on the Knowledge Center will support long-form text,
-            in-line images, pull quotes and downloadable PDFs.
-          </p>
+        <div className="mt-12 space-y-6 text-lg text-foreground/85 leading-relaxed">
+          {article.body.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+
+        <div className="mt-16 rounded-3xl bg-lavender-soft/60 p-8">
+          <p className="text-xs uppercase tracking-[0.18em] text-teal font-semibold">Keep reading</p>
+          <div className="mt-4 grid gap-3">
+            {articles.filter((a) => a.slug !== article.slug).map((a) => (
+              <Link
+                key={a.slug}
+                to="/knowledge/$slug"
+                params={{ slug: a.slug }}
+                className="flex items-center justify-between gap-6 rounded-2xl bg-background/70 p-4 hover:bg-background transition-colors"
+              >
+                <span className="font-semibold">{a.title}</span>
+                <span className="text-xs text-muted-foreground shrink-0">{a.minutes} min</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </article>
     </SiteShell>

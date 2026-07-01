@@ -1,11 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { StatCounter } from "@/components/site/StatCounter";
 import { FadeUp } from "@/components/site/FadeUp";
 import { stats, themes, articles, site } from "@/content/site";
+import heroImg from "@/assets/hero-portrait.jpg";
+import journeyImg from "@/assets/journey.jpg";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { property: "og:image", content: "https://id-preview--5a54259f-7679-4b2b-8054-87a31ff87e83.lovable.app/og-home.jpg" },
+    ],
+  }),
   component: Home,
 });
 
@@ -58,16 +65,16 @@ function Home() {
             </div>
 
             <div className="relative">
-              <div className="tinted-photo aspect-[4/5] bg-lavender/40">
-                <div className="absolute inset-0 grid place-items-center text-ink/40">
-                  <div className="text-center px-8">
-                    <Sparkles className="mx-auto h-10 w-10" />
-                    <p className="mt-4 text-sm uppercase tracking-[0.18em]">Photograph placeholder</p>
-                    <p className="mt-2 text-xs">A field portrait lives here.</p>
-                  </div>
-                </div>
+              <div className="tinted-photo aspect-[4/5]">
+                <img
+                  src={heroImg}
+                  alt="A community teacher reading with two young girls on a woven mat in a sunlit courtyard."
+                  width={1024}
+                  height={1280}
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <div className="absolute -bottom-6 -left-6 hidden md:block max-w-[220px] rounded-2xl bg-background p-4 shadow-lg border border-border">
+              <div className="absolute -bottom-6 -left-6 hidden md:block max-w-[240px] rounded-2xl bg-background p-4 shadow-lg border border-border">
                 <p className="text-xs uppercase tracking-[0.16em] text-teal font-semibold">Field note</p>
                 <p className="mt-2 text-sm leading-snug text-foreground/80">
                   “We don't arrive with answers. We arrive with time.” — Ritu, programme lead
@@ -115,7 +122,7 @@ function Home() {
                 <span
                   className={`inline-flex h-9 items-center rounded-full px-3.5 text-xs font-semibold uppercase tracking-[0.14em] ${toneMap[t.tone]}`}
                 >
-                  0{themes.indexOf(t) + 1}
+                  0{i + 1}
                 </span>
                 <h3 className="mt-6 text-2xl font-semibold tracking-tight">{t.title}</h3>
                 <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{t.summary}</p>
@@ -152,7 +159,16 @@ function Home() {
               </Link>
             </div>
             <div className="relative">
-              <div className="tinted-photo aspect-[5/4] bg-teal/20" />
+              <div className="tinted-photo aspect-[5/4]">
+                <img
+                  src={journeyImg}
+                  alt="Hands of an older woman and a younger volunteer meeting over a cup of chai."
+                  width={1280}
+                  height={1024}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -184,6 +200,7 @@ function Home() {
                 <h3 className="mt-5 text-xl font-semibold tracking-tight leading-snug group-hover:text-teal-deep transition-colors">
                   {a.title}
                 </h3>
+                <p className="mt-3 text-sm text-foreground/65 leading-relaxed line-clamp-3">{a.dek}</p>
                 <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/70">
                   Read <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
@@ -205,21 +222,15 @@ function Home() {
                 Every act of care compounds.
               </h2>
               <p className="mt-5 max-w-lg text-cream/75 leading-relaxed">
-                Whether it's ₹500 or your Saturday morning — small, steady support
-                is what keeps this work going.
+                Whether it's ₹500 or your Saturday morning — the work grows in
+                the company you keep it.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 md:justify-end">
-              <Link
-                to="/donate"
-                className="inline-flex items-center gap-2 rounded-full bg-cream text-ink px-6 py-3.5 text-sm font-semibold hover:bg-lavender transition-colors"
-              >
+              <Link to="/donate" className="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3.5 text-sm font-semibold text-ink hover:bg-cream/90 transition-colors">
                 Donate <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-cream/30 px-6 py-3.5 text-sm font-semibold hover:border-cream transition-colors"
-              >
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-6 py-3.5 text-sm font-semibold text-cream hover:border-cream/60 transition-colors">
                 Volunteer
               </Link>
             </div>
