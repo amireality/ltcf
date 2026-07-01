@@ -1,21 +1,27 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import { milestones } from "@/content/site";
 
 /**
  * Half-viewport sticky journey. As the user scrolls, the year on the
  * vertical line changes in place; previous story fades up and out at the
- * top, next story fades in from the bottom.
+ * top, next appears fading from the bottom.
  */
 export function JourneyScroll() {
   const ref = useRef<HTMLDivElement>(null);
   const steps = milestones.length;
-  // Runway: one 60vh block per step, so scroll pacing feels considered.
-  const runwayVh = steps * 60;
+  const runwayVh = steps * 65;
+  const [active, setActive] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const clamped = Math.max(0, Math.min(0.9999, v));
+    const idx = Math.min(steps - 1, Math.floor(clamped * steps));
+    if (idx !== active) setActive(idx);
   });
 
   return (
@@ -26,15 +32,32 @@ export function JourneyScroll() {
       style={{ height: `${runwayVh}vh` }}
     >
       <div className="sticky top-[25vh] h-[50vh] overflow-hidden">
-        <div className="container-ltcf h-full grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10 md:gap-20 items-center">
+        <div className="container-ltcf h-full grid grid-cols-[auto_1fr] gap-8 md:gap-20 items-center">
           {/* Vertical line + year */}
-          <div className="relative h-full w-24 md:w-32 flex items-center justify-center">
+          <div className="relative h-full w-24 md:w-40 flex items-center justify-center">
             <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-cream/15" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 w-px bg-gradient-to-b from-ink to-transparent" />
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-24 w-px bg-gradient-to-t from-ink to-transparent" />
-            <div className="relative flex items-center justify-center">
-              <span className="absolute h-3 w-3 rounded-full bg-teal ring-8 ring-ink" />
-              <YearStack progress={scrollYProgress} />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 h-24 w-px bg-gradient-to-b from-ink to-transparent z-10" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-24 w-px bg-gradient-to-t from-ink to-transparent z-10" />
+
+            <div className="relative h-40 md:h-56 w-full grid place-items-center">
+              <span className="absolute left-1/2 -translate-x-1/2 h-3 w-3 rounded-full bg-teal ring-8 ring-ink z-20" />
+              {milestones.map((m, i) => {
+                const state = i === active ? "current" : i < active ? "past" : "future";
+                return (
+                  <span
+                    key={m.year}
+                    className={`absolute font-semibold tracking-tight text-4xl md:text-6xl text-cream transition-all duration-700 ease-out ${
+                      state === "current"
+                        ? "opacity-100 translate-y-0"
+                        : state === "past"
+                          ? "opacity-15 -translate-y-14 blur-[1px]"
+                          : "opacity-15 translate-y-14 blur-[1px]"
+                    }`}
+                  >
+                    {m.year}
+                  </span>
+                );
+              })}
             </div>
           </div>
 
@@ -47,102 +70,47 @@ export function JourneyScroll() {
                 <p className="text-xs uppercase tracking-[0.22em] text-lavender font-semibold">
                   Our journey · since 2002
                 </p>
-                <StoryStack progress={scrollYProgress} />
+                <div className="relative mt-6 h-56">
+                  {milestones.map((m, i) => {
+                    const state = i === active ? "current" : i < active ? "past" : "future";
+                    return (
+                      <div
+                        key={m.year}
+                        className={`absolute inset-0 transition-all duration-700 ease-out ${
+                          state === "current"
+                            ? "opacity-100 translate-y-0"
+                            : state === "past"
+                              ? "opacity-0 -translate-y-16"
+                              : "opacity-0 translate-y-16"
+                        }`}
+                      >
+                        <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-cream">
+                          {m.title}
+                        </h3>
+                        <p className="mt-4 text-cream/70 leading-relaxed max-w-lg">
+                          {m.body}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Progress dots */}
+                <div className="mt-6 flex gap-1.5">
+                  {milestones.map((m, i) => (
+                    <span
+                      key={m.year}
+                      className={`h-1 rounded-full transition-all duration-500 ${
+                        i === active ? "w-8 bg-lavender" : "w-4 bg-cream/20"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function YearStack({ progress }: { progress: ReturnType<typeof useScroll>["scrollYProgress"] }) {
-  const steps = milestones.length;
-  return (
-    <div className="relative h-40 w-40 md:h-56 md:w-56 grid place-items-center">
-      {milestones.map((m, i) => {
-        const start = i / steps;
-        const end = (i + 1) / steps;
-        const mid = (start + end) / 2;
-        // Fade + slide: previous drifts up-and-out, next drifts in from below.
-        return <Year key={m.year} year={m.year} progress={progress} start={start} mid={mid} end={end} />;
-      })}
-    </div>
-  );
-}
-
-function Year({
-  year,
-  progress,
-  start,
-  mid,
-  end,
-}: {
-  year: string;
-  progress: ReturnType<typeof useScroll>["scrollYProgress"];
-  start: number;
-  mid: number;
-  end: number;
-}) {
-  const c = (n: number) => Math.max(0, Math.min(1, n));
-  const opacity = useTransform(
-    progress,
-    [c(start - 0.02), c(start + 0.02), mid, c(end - 0.02), c(end + 0.02)],
-    [0, 0.35, 1, 0.35, 0]
-  );
-  const y = useTransform(progress, [start, mid, end], [40, 0, -40]);
-  return (
-    <motion.span
-      style={{ opacity, y }}
-      className="absolute font-semibold tracking-tight text-5xl md:text-7xl text-cream"
-    >
-      {year}
-    </motion.span>
-  );
-}
-
-
-function StoryStack({ progress }: { progress: ReturnType<typeof useScroll>["scrollYProgress"] }) {
-  const steps = milestones.length;
-  return (
-    <div className="relative mt-6 h-56">
-      {milestones.map((m, i) => {
-        const start = i / steps;
-        const mid = (start + (i + 1) / steps) / 2;
-        const end = (i + 1) / steps;
-        return <Story key={m.year} title={m.title} body={m.body} progress={progress} start={start} mid={mid} end={end} />;
-      })}
-    </div>
-  );
-}
-
-function Story({
-  title,
-  body,
-  progress,
-  start,
-  mid,
-  end,
-}: {
-  title: string;
-  body: string;
-  progress: ReturnType<typeof useScroll>["scrollYProgress"];
-  start: number;
-  mid: number;
-  end: number;
-}) {
-  const c = (n: number) => Math.max(0, Math.min(1, n));
-  const opacity = useTransform(
-    progress,
-    [c(start - 0.02), c(start + 0.03), mid, c(end - 0.03), c(end + 0.02)],
-    [0, 0.25, 1, 0.25, 0]
-  );
-  const y = useTransform(progress, [start, mid, end], [60, 0, -60]);
-  return (
-    <motion.div style={{ opacity, y }} className="absolute inset-0">
-      <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-cream">{title}</h3>
-      <p className="mt-4 text-cream/70 leading-relaxed max-w-lg">{body}</p>
-    </motion.div>
   );
 }
