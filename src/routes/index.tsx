@@ -4,9 +4,10 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { StatCounter } from "@/components/site/StatCounter";
 import { FadeUp } from "@/components/site/FadeUp";
 import { JourneyScroll } from "@/components/site/JourneyScroll";
+import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { stats, themes, articles, site } from "@/content/site";
-import heroImg from "@/assets/hero-portrait.jpg";
 import journeyImg from "@/assets/journey.jpg";
+
 
 
 export const Route = createFileRoute("/")({
