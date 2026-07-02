@@ -7,10 +7,11 @@ import { site } from "@/content/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Love To Care Foundation" },
-      { name: "description", content: "Reach the LTCF team — for partnerships, volunteering, press, or a simple hello. We read every note." },
-      { property: "og:title", content: "Contact — LTCF" },
-      { property: "og:description", content: "Get in touch with Love To Care Foundation." },
+      { title: "Contact — Luv 2 Care Foundation" },
+      { name: "description", content: "Reach the Luv 2 Care Foundation team — for partnerships, volunteering, press, or a simple hello. We read every note." },
+      { property: "og:title", content: "Contact — Luv 2 Care Foundation" },
+      { property: "og:description", content: "Get in touch with Luv 2 Care Foundation." },
+
     ],
   }),
   component: Contact,

@@ -7,10 +7,11 @@ import communityImg from "@/assets/Whoweare.JPG.asset.json";
 export const Route = createFileRoute("/who-we-are")({
   head: () => ({
     meta: [
-      { title: "Who We Are — Love To Care Foundation" },
-      { name: "description", content: "The people, principles and 14-year journey behind LTCF — a small team building quiet, community-first change across India." },
-      { property: "og:title", content: "Who We Are — LTCF" },
-      { property: "og:description", content: "The people and principles behind Love To Care Foundation." },
+      { title: "Who We Are — Luv 2 Care Foundation" },
+      { name: "description", content: "The people, principles and journey behind Luv 2 Care Foundation — a Section 8 non-profit building community-first change across India since 2002." },
+      { property: "og:title", content: "Who We Are — Luv 2 Care Foundation" },
+      { property: "og:description", content: "The people and principles behind Luv 2 Care Foundation." },
+
     ],
   }),
   component: WhoWeAre,
@@ -78,7 +79,7 @@ function WhoWeAre() {
               Fifteen years, quietly.
             </h2>
             <p className="mt-5 max-w-xl text-lg text-foreground/70 leading-relaxed">
-              LTCF was never planned as an organisation. Here are the years
+              Luv 2 Care Foundation was never planned as an organisation. Here are the years
               that shaped it — in the words of the people who lived them.
             </p>
           </div>
@@ -109,7 +110,7 @@ function WhoWeAre() {
             </h2>
           </div>
           <div className="space-y-4 text-foreground/80 leading-relaxed">
-            <p>LTCF is registered as a public trust in Madhya Pradesh (Reg. No. XXXX/2011) and holds 12A, 80G and FCRA certifications.</p>
+            <p>Luv 2 Care Foundation is incorporated as a Section 8 company under the Companies Act, 2013 in the State of Delhi. Directors: Prerna Mishra and Rajesh.</p>
             <p>Our annual audit is conducted by Chaturvedi &amp; Co. and published on our Knowledge Center each December. Our board meets quarterly; minutes are available on request.</p>
           </div>
         </div>
