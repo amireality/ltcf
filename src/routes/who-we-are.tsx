@@ -111,7 +111,7 @@ function WhoWeAre() {
           </div>
           <div className="space-y-4 text-foreground/80 leading-relaxed">
             <p>Luv 2 Care Foundation is incorporated as a Section 8 company under the Companies Act, 2013 in the State of Delhi. Directors: Prerna Mishra and Rajesh.</p>
-            <p>Our annual audit is conducted by Chaturvedi &amp; Co. and published on our Knowledge Center each December. Our board meets quarterly; minutes are available on request.</p>
+            <p>Our annual accounts are audited by an independent Chartered Accountant and published on our Knowledge Center each year. The board meets regularly; minutes are available on request.</p>
           </div>
         </div>
       </section>
