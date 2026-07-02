@@ -102,14 +102,9 @@ function Home() {
               <div className="relative z-10 w-full max-w-md aspect-[3/4] group">
                 <div className="absolute -inset-4 border-2 border-lavender -z-10 translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
                 <div className="tinted-photo h-full w-full overflow-hidden">
-                  <img
-                    src={heroImg}
-                    alt="A community teacher reading with two young girls on a woven mat in a sunlit courtyard."
-                    width={1024}
-                    height={1280}
-                    className="h-full w-full object-cover transition-all duration-700 group-hover:scale-[1.02]"
-                  />
+                  <HeroCarousel />
                 </div>
+
 
                 {/* Overlapping field-note card */}
                 <div className="absolute -bottom-10 -left-6 md:-left-16 bg-background p-5 shadow-2xl max-w-[260px] hidden sm:block border border-border">
