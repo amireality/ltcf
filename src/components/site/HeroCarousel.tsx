@@ -51,7 +51,7 @@ export function HeroCarousel() {
             width={1024}
             height={1280}
             loading={i === 0 ? "eager" : "lazy"}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[900ms] ease-out ${
+            className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-[900ms] ease-out ${
               i === index ? "opacity-100" : "opacity-0"
             }`}
             aria-hidden={i === index ? "false" : "true"}
