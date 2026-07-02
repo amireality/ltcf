@@ -13,9 +13,10 @@ export const Route = createFileRoute("/impact/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.theme.title} — LTCF` },
+          { title: `${loaderData.theme.title} — Luv 2 Care Foundation` },
           { name: "description", content: loaderData.theme.summary },
-          { property: "og:title", content: `${loaderData.theme.title} — LTCF` },
+          { property: "og:title", content: `${loaderData.theme.title} — Luv 2 Care Foundation` },
+
           { property: "og:description", content: loaderData.theme.summary },
         ]
       : [],
