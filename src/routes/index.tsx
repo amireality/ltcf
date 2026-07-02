@@ -107,23 +107,6 @@ function Home() {
                 </div>
 
 
-                {/* Overlapping field-note card */}
-                <div className="absolute -bottom-10 -left-6 md:-left-16 bg-background p-5 shadow-2xl max-w-[260px] hidden sm:block border border-border">
-                  <div className="tinted-photo aspect-[16/9] mb-4 overflow-hidden">
-                    <img
-                      src={journeyImg}
-                      alt="Hands meeting over a cup of chai."
-                      width={400}
-                      height={225}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.16em] text-teal font-bold">Field note</p>
-                  <p className="mt-2 text-xs font-semibold leading-relaxed text-foreground/80">
-                    “We don't arrive with answers. We arrive with time.” — Ritu, programme lead
-                  </p>
-                </div>
               </div>
 
               {/* Marginalia */}
