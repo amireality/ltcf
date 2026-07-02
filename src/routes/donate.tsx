@@ -1,14 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Heart, QrCode, Link as LinkIcon } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
+import donateHero from "@/assets/donate_hero.png.asset.json";
 
 export const Route = createFileRoute("/donate")({
   head: () => ({
     meta: [
-      { title: "Donate — Love To Care Foundation" },
-      { name: "description", content: "Support LTCF's work across India. Every ₹500 keeps a child learning for a month." },
-      { property: "og:title", content: "Donate — LTCF" },
-      { property: "og:description", content: "Stand with Love To Care Foundation. Every act of care compounds." },
+      { title: "Donate — Luv 2 Care Foundation" },
+      { name: "description", content: "Support Luv 2 Care Foundation's work across India. Every ₹500 keeps a child learning for a month." },
+      { property: "og:title", content: "Donate — Luv 2 Care Foundation" },
+      { property: "og:description", content: "Stand with Luv 2 Care Foundation. Every act of care compounds." },
     ],
   }),
   component: Donate,
@@ -19,17 +20,32 @@ const amounts = [500, 1500, 3000, 7500];
 function Donate() {
   return (
     <SiteShell>
-      <section className="container-ltcf pt-16 md:pt-24 pb-12">
-        <span className="eyebrow">Donate</span>
-        <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tight max-w-4xl">
-          Small, steady, together.
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-foreground/70 leading-relaxed">
-          Your contribution supports learning centres, health camps and
-          livelihood cohorts across nine states. All donations are eligible
-          for 80G tax exemption in India.
-        </p>
+      {/* HERO with background image */}
+      <section className="relative overflow-hidden">
+        <img
+          src={donateHero.url}
+          alt="Volunteers with schoolchildren at a Luv 2 Care community event."
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink/80" />
+        <div className="absolute inset-0 bg-lavender/10 mix-blend-multiply" />
+        <div className="container-ltcf relative pt-24 md:pt-36 pb-24 md:pb-36">
+          <span className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.22em] uppercase text-lavender">
+            <span className="h-px w-10 bg-lavender" /> Donate
+          </span>
+          <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tight text-cream max-w-4xl">
+            Small, steady, together.
+          </h1>
+          <p className="mt-8 max-w-2xl text-lg text-cream/85 leading-relaxed">
+            Your contribution supports learning centres, health camps, animal
+            welfare drives and safe circles across India. All donations are
+            eligible for 80G tax exemption.
+          </p>
+        </div>
       </section>
+
+
 
       <section className="container-ltcf pb-24 md:pb-32 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
         <div className="rounded-3xl bg-card border border-border p-8 md:p-10">
