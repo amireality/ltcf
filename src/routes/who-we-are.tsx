@@ -34,8 +34,9 @@ function WhoWeAre() {
       <section className="container-ltcf pb-24">
         <div className="tinted-photo aspect-[16/9]">
           <img
-            src={communityImg}
-            alt="A women's circle sitting under a banyan tree at golden hour."
+            src={communityImg.url}
+            alt="A community gathering at a Luv 2 Care event — hundreds of families, children in the front, elders and volunteers behind."
+
             width={1600}
             height={912}
             loading="lazy"
