@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { FadeUp } from "@/components/site/FadeUp";
 import { milestones } from "@/content/site";
-import communityImg from "@/assets/community.jpg";
+import communityImg from "@/assets/Whoweare.JPG.asset.json";
 
 export const Route = createFileRoute("/who-we-are")({
   head: () => ({
