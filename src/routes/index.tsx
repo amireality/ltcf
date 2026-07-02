@@ -77,11 +77,12 @@ function Home() {
 
               <div className="pt-8 flex gap-12 border-t border-ink/10">
                 <div>
-                  <p className="text-2xl font-bold text-ink">05</p>
+                  <p className="text-2xl font-bold text-ink">06</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
                     Impact themes
                   </p>
                 </div>
+
                 <div>
                   <p className="text-2xl font-bold text-ink">9 states</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
@@ -128,9 +129,10 @@ function Home() {
               {/* Marginalia */}
               <div className="absolute top-1/2 -right-6 lg:-right-10 -translate-y-1/2 rotate-90 hidden md:block pointer-events-none">
                 <span className="text-[120px] font-black text-ink/[0.04] select-none leading-none tracking-tighter">
-                  LTCF
+                  L2CF
                 </span>
               </div>
+
             </div>
           </div>
         </div>
