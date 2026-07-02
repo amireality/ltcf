@@ -156,7 +156,7 @@ function Home() {
           <div>
             <span className="eyebrow">What we do</span>
             <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
-              Five threads, one fabric of care.
+              Six threads, one fabric of care.
             </h2>
           </div>
           <p className="text-lg text-foreground/70 leading-relaxed max-w-xl">
