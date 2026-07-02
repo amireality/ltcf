@@ -4,9 +4,10 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { StatCounter } from "@/components/site/StatCounter";
 import { FadeUp } from "@/components/site/FadeUp";
 import { JourneyScroll } from "@/components/site/JourneyScroll";
+import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { stats, themes, articles, site } from "@/content/site";
-import heroImg from "@/assets/hero-portrait.jpg";
 import journeyImg from "@/assets/journey.jpg";
+
 
 
 export const Route = createFileRoute("/")({
@@ -76,11 +77,12 @@ function Home() {
 
               <div className="pt-8 flex gap-12 border-t border-ink/10">
                 <div>
-                  <p className="text-2xl font-bold text-ink">05</p>
+                  <p className="text-2xl font-bold text-ink">06</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
                     Impact themes
                   </p>
                 </div>
+
                 <div>
                   <p className="text-2xl font-bold text-ink">9 states</p>
                   <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
@@ -101,14 +103,9 @@ function Home() {
               <div className="relative z-10 w-full max-w-md aspect-[3/4] group">
                 <div className="absolute -inset-4 border-2 border-lavender -z-10 translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
                 <div className="tinted-photo h-full w-full overflow-hidden">
-                  <img
-                    src={heroImg}
-                    alt="A community teacher reading with two young girls on a woven mat in a sunlit courtyard."
-                    width={1024}
-                    height={1280}
-                    className="h-full w-full object-cover transition-all duration-700 group-hover:scale-[1.02]"
-                  />
+                  <HeroCarousel />
                 </div>
+
 
                 {/* Overlapping field-note card */}
                 <div className="absolute -bottom-10 -left-6 md:-left-16 bg-background p-5 shadow-2xl max-w-[260px] hidden sm:block border border-border">
@@ -132,9 +129,10 @@ function Home() {
               {/* Marginalia */}
               <div className="absolute top-1/2 -right-6 lg:-right-10 -translate-y-1/2 rotate-90 hidden md:block pointer-events-none">
                 <span className="text-[120px] font-black text-ink/[0.04] select-none leading-none tracking-tighter">
-                  LTCF
+                  L2CF
                 </span>
               </div>
+
             </div>
           </div>
         </div>
@@ -158,7 +156,7 @@ function Home() {
           <div>
             <span className="eyebrow">What we do</span>
             <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
-              Five threads, one fabric of care.
+              Six threads, one fabric of care.
             </h2>
           </div>
           <p className="text-lg text-foreground/70 leading-relaxed max-w-xl">

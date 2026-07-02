@@ -77,29 +77,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Love To Care Foundation — Care, in every corner." },
+      { title: "Luv 2 Care Foundation — Care, in every corner." },
       {
         name: "description",
         content:
-          "Love To Care Foundation (LTCF) is a non-profit building quiet, lasting change with communities across India through education, health, livelihood and dignity.",
+          "Luv 2 Care Foundation (L2CF) is a Section 8 non-profit working across India for health, education, social welfare, animal care and holistic well-being.",
       },
-      { name: "author", content: "Love To Care Foundation" },
+      { name: "author", content: "Luv 2 Care Foundation" },
       { name: "theme-color", content: "#FBF9F4" },
-      { property: "og:site_name", content: "Love To Care Foundation" },
-      { property: "og:title", content: "Love To Care Foundation — Care, in every corner." },
+      { property: "og:site_name", content: "Luv 2 Care Foundation" },
+      { property: "og:title", content: "Luv 2 Care Foundation — Care, in every corner." },
       {
         property: "og:description",
         content:
-          "A quiet, community-first NGO working across India on education, health, livelihood, dignity and climate.",
+          "A community-first Section 8 non-profit working across India on health, education, social welfare, animal care and mental well-being.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Love To Care Foundation — Care, in every corner." },
-      { name: "description", content: "Lovable Launchpad is a website builder that leverages AI to create and host client websites." },
-      { property: "og:description", content: "Lovable Launchpad is a website builder that leverages AI to create and host client websites." },
-      { name: "twitter:description", content: "Lovable Launchpad is a website builder that leverages AI to create and host client websites." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ccb56e22-4741-4b48-9fc4-c3a6e9cbcec0/id-preview-d8fb1fb2--5a54259f-7679-4b2b-8054-87a31ff87e83.lovable.app-1782918819685.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ccb56e22-4741-4b48-9fc4-c3a6e9cbcec0/id-preview-d8fb1fb2--5a54259f-7679-4b2b-8054-87a31ff87e83.lovable.app-1782918819685.png" },
+      { name: "twitter:title", content: "Luv 2 Care Foundation — Care, in every corner." },
+      { name: "twitter:description", content: "A community-first Section 8 non-profit working across India." },
+
     ],
     links: [
       { rel: "stylesheet", href: appCss },

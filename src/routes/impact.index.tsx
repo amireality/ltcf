@@ -7,10 +7,11 @@ import { themes } from "@/content/site";
 export const Route = createFileRoute("/impact/")({
   head: () => ({
     meta: [
-      { title: "Impact Themes — Love To Care Foundation" },
-      { name: "description", content: "The five threads of LTCF's work: education, health, livelihood, dignity, and climate & community." },
-      { property: "og:title", content: "Impact Themes — LTCF" },
-      { property: "og:description", content: "Five long conversations, not five projects." },
+      { title: "Impact Themes — Luv 2 Care Foundation" },
+      { name: "description", content: "The six threads of our work: health, education, social welfare, animal welfare, mental well-being and community relief." },
+      { property: "og:title", content: "Impact Themes — Luv 2 Care Foundation" },
+      { property: "og:description", content: "Six long conversations, not six projects." },
+
     ],
   }),
   component: ImpactIndex,
@@ -22,7 +23,7 @@ function ImpactIndex() {
       <section className="container-ltcf pt-16 md:pt-24 pb-16">
         <span className="eyebrow">Impact Themes</span>
         <h1 className="mt-6 text-5xl md:text-7xl font-semibold tracking-tight max-w-4xl">
-          Five threads, one fabric of care.
+          Six threads, one fabric of care.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-foreground/70 leading-relaxed">
           Each theme is a long-term relationship with the communities we serve.

@@ -7,10 +7,11 @@ import { articles } from "@/content/site";
 export const Route = createFileRoute("/knowledge/")({
   head: () => ({
     meta: [
-      { title: "Knowledge Center — Love To Care Foundation" },
-      { name: "description", content: "Field notes, case studies and annual reports from LTCF's work across India." },
-      { property: "og:title", content: "Knowledge Center — LTCF" },
-      { property: "og:description", content: "Field notes and reports from a 14-year non-profit journey." },
+      { title: "Knowledge Center — Luv 2 Care Foundation" },
+      { name: "description", content: "Field notes, case studies and annual reports from Luv 2 Care Foundation's work across India." },
+      { property: "og:title", content: "Knowledge Center — Luv 2 Care Foundation" },
+      { property: "og:description", content: "Field notes and reports from our community-first work." },
+
     ],
   }),
   component: KnowledgeIndex,

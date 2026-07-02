@@ -2,14 +2,16 @@
 // wire the admin CMS (Phase 5) — table shapes should mirror these types.
 
 export const site = {
-  name: "Love To Care Foundation",
-  short: "LTCF",
+  name: "Luv 2 Care Foundation",
+  short: "L2CF",
   tagline: "Care, in every corner.",
   mission:
-    "We build quiet, lasting change with communities across India - through education, health, livelihood and dignity.",
-  location: "Bhopal, Madhya Pradesh, India",
-  email: "hello@lovetocare.org",
+    "A Section 8 non-profit working across India for health, education, social welfare, animal care and holistic well-being - one community, one story at a time.",
+  location: "New Delhi, India",
+  email: "connect@luv2carefoundation.org",
   phone: "+91 00000 00000",
+  registration: "Section 8, Companies Act 2013 · State of Delhi",
+  founders: ["Prerna Mishra", "Rajesh"],
   socials: {
     instagram: "https://instagram.com/",
     linkedin: "https://linkedin.com/",
@@ -29,7 +31,7 @@ export const stats = [
   { value: 12400, suffix: "+", label: "Lives touched" },
   { value: 38, suffix: "", label: "Communities served" },
   { value: 9, suffix: "", label: "States reached" },
-  { value: 14, suffix: "", label: "Years of work" },
+  { value: 24, suffix: "", label: "Years of care" },
 ];
 
 export type Tone = "lavender" | "teal" | "terracotta" | "mustard" | "sage";
@@ -47,134 +49,134 @@ export type Theme = {
 
 export const themes: Theme[] = [
   {
+    slug: "health",
+    title: "Public Health & Wellbeing",
+    summary:
+      "Free camps, medicines and last-mile referrals — bringing healthcare where the system runs thin.",
+    tone: "teal",
+    lede: "We support hospitals, clinics and medical relief camps, and stand with individuals facing chronic illness, disability or medical emergencies. Prevention sits alongside treatment — sanitation, nutrition and hygiene are health work too.",
+    approach: [
+      "Free and subsidised medical treatment, medicines and equipment.",
+      "Preventive camps on sanitation, nutrition, hygiene and wellness.",
+      "Emergency assistance for individuals with disabilities and chronic illness.",
+    ],
+    numbers: [
+      { value: "3,100+", label: "Patients served" },
+      { value: "24", label: "Villages covered" },
+      { value: "12", label: "Partner clinics" },
+    ],
+    story: {
+      quote:
+        "The camp came to our lane. My mother saw a doctor for the first time in three years.",
+      person: "Reshma",
+      where: "North West Delhi",
+    },
+  },
+  {
     slug: "education",
     title: "Education & Learning",
     summary:
-      "Learning spaces, teacher fellowships and material support for first-generation learners.",
+      "Schools, libraries and skill centres — plus scholarships, uniforms and fee assistance for children who need them.",
     tone: "lavender",
-    lede: "We run neighbourhood learning centres for children whose parents never sat in a classroom. The work is slow — a decade in, we are still learning how to teach.",
+    lede: "We establish, support and run learning spaces from libraries to vocational institutes. Scholarships, materials and adult literacy sit alongside seminars, counselling and career workshops for young people.",
     approach: [
-      "Six community-run learning centres across MP, Rajasthan and Jharkhand.",
-      "Teacher fellowships that pair young graduates with senior educators for two years.",
-      "Reading kits, menstrual kits and a warm meal — because learning happens in a body.",
+      "Scholarships, uniforms and fee assistance for students from EWS backgrounds.",
+      "Digital learning, women's education and adult literacy programmes.",
+      "Career counselling, workshops and skill-development for marginalised communities.",
     ],
     numbers: [
       { value: "1,240", label: "Children in centres" },
       { value: "38", label: "Fellow teachers" },
-      { value: "92%", label: "Retention (Yr 1 → Yr 2)" },
+      { value: "92%", label: "Year-on-year retention" },
     ],
     story: {
       quote:
-        "My mother wanted me to stop after class 5. Didi came home and sat with her for four evenings. I am in class 9 now.",
-      person: "Priya, 14",
-      where: "Vidisha, MP",
+        "My father said class 8 is enough. Didi came to our home and spoke with him. I am in class 11 now.",
+      person: "Priya, 16",
+      where: "Kirari, Delhi",
     },
   },
   {
-    slug: "health",
-    title: "Health & Wellbeing",
+    slug: "social-welfare",
+    title: "Social Welfare & Relief",
     summary:
-      "Preventive camps, maternal care and mental-health circles for underserved communities.",
-    tone: "teal",
-    lede: "Health work at LTCF is built around ASHAs — the women who already know every family. We don't replace the system, we sit alongside it.",
-    approach: [
-      "Monthly maternal-health camps in 24 villages, in partnership with local ASHAs.",
-      "Mental-health listening circles for women and adolescent girls.",
-      "A last-mile referral fund for surgeries the public system can't schedule fast enough.",
-    ],
-    numbers: [
-      { value: "3,100", label: "Women in maternal care" },
-      { value: "24", label: "Villages covered" },
-      { value: "₹18L", label: "Referral fund disbursed (2025)" },
-    ],
-    story: {
-      quote:
-        "The circle is the only place I can say I am tired without someone offering me a solution.",
-      person: "Sunita, ASHA worker",
-      where: "Betul, MP",
-    },
-  },
-  {
-    slug: "livelihood",
-    title: "Livelihood & Skills",
-    summary:
-      "Vocational training and micro-enterprise support for women and rural youth.",
-    tone: "terracotta",
-    lede: "A livelihood is not a one-time skill — it is a relationship with a market. Our cohorts stay together for two years past graduation.",
-    approach: [
-      "Two-year tailoring, digital-literacy and food-processing cohorts.",
-      "A revolving fund that lets women borrow ₹5,000–₹25,000 without collateral.",
-      "Warm-market help: printing, GST, first three orders, a WhatsApp Business setup.",
-    ],
-    numbers: [
-      { value: "120", label: "Women graduated (2025)" },
-      { value: "₹9,400", label: "Median monthly income" },
-      { value: "86%", label: "Still trading, 18 months on" },
-    ],
-    story: {
-      quote:
-        "First time in my life a bank called me 'ma'am'. I laughed for a full minute.",
-      person: "Rekha, tailoring cohort",
-      where: "Sagar, MP",
-    },
-  },
-  {
-    slug: "dignity",
-    title: "Dignity & Rights",
-    summary:
-      "Legal aid, documentation drives and safe spaces for migrant and marginalised families.",
+      "Food, clothing and shelter for the poor, homeless and elderly — and relief when disasters strike.",
     tone: "mustard",
-    lede: "A ration card, an Aadhaar linkage, a birth certificate — the paperwork of citizenship is the paperwork of dignity. We show up on the days no one else does.",
+    lede: "We provide relief to underprivileged groups and support welfare initiatives during natural calamities, disasters and emergencies. Orphanages, old-age homes and community centres are long-standing partners.",
     approach: [
-      "Weekly documentation clinics at three urban migrant settlements.",
-      "A panel of pro-bono lawyers for domestic-violence and wage-theft cases.",
-      "Safe overnight spaces for women in transit crises.",
+      "Ration, clothing and shelter drives for the homeless and elderly.",
+      "Disaster and emergency response with local partners.",
+      "Support to orphanages, old-age homes and community centres.",
     ],
     numbers: [
-      { value: "2,700+", label: "Documents restored" },
-      { value: "48", label: "Cases fought pro-bono" },
+      { value: "42,000", label: "Ration kits distributed" },
       { value: "312", label: "Nights of safe shelter" },
+      { value: "14", label: "Partner institutions" },
     ],
     story: {
       quote: "They didn't ask me why I ran. They asked if I had eaten.",
       person: "Anonymous, safe-shelter guest",
-      where: "Indore",
+      where: "New Delhi",
     },
   },
   {
-    slug: "climate",
-    title: "Climate & Community",
-    summary: "Water conservation, kitchen gardens and climate-resilient livelihoods.",
+    slug: "animal-welfare",
+    title: "Animal Welfare",
+    summary:
+      "Rescue, treatment and rehabilitation of injured, abandoned and stray animals — with vaccination and sterilisation drives.",
     tone: "sage",
-    lede: "The climate conversation, at village scale, is a conversation about water. We build with — never for — the panchayat.",
+    lede: "We work with veterinary institutions, government bodies and neighbourhood volunteers to care for the animals who share our streets. Awareness campaigns run alongside on-ground rescues.",
     approach: [
-      "Reviving 14 traditional johads and check-dams with village labour and matched funds.",
-      "Kitchen-garden kits for 800 households — seeds, drip-lines, training.",
-      "A climate-resilient millet cooperative in three drought-prone blocks.",
+      "Rescue, treatment and shelter for injured or abandoned animals.",
+      "Vaccination and sterilisation drives in partnership with vets.",
+      "Community awareness on humane treatment of animals.",
     ],
     numbers: [
-      { value: "14", label: "Water bodies revived" },
-      { value: "800", label: "Kitchen gardens" },
-      { value: "3", label: "Millet co-ops" },
+      { value: "1,600+", label: "Animals treated" },
+      { value: "22", label: "Vaccination drives" },
+      { value: "6", label: "Veterinary partners" },
+    ],
+    story: {
+      quote: "They came at 11 pm for a puppy hit by a scooter. She's back on our street now.",
+      person: "Meera",
+      where: "Hari Nagar, New Delhi",
+    },
+  },
+  {
+    slug: "mental-health",
+    title: "Mental Health & Wellbeing",
+    summary:
+      "Counselling, helplines and support groups — plus yoga, meditation and mind-body practices for holistic health.",
+    tone: "terracotta",
+    lede: "Emotional well-being is health. We help set up counselling centres, helplines and support groups, and run workshops on yoga, meditation and mind-body wellness for communities that rarely get to pause.",
+    approach: [
+      "Counselling centres, helplines and peer support groups.",
+      "Yoga, meditation and mind-body wellness workshops.",
+      "Community training sessions on emotional health.",
+    ],
+    numbers: [
+      { value: "820", label: "Counselling sessions" },
+      { value: "36", label: "Support circles" },
+      { value: "9", label: "Trained facilitators" },
     ],
     story: {
       quote:
-        "My mother-in-law grew up on millets. My children forgot. Now they are asking for them at dinner.",
-      person: "Kaveri",
-      where: "Chhatarpur, MP",
+        "The circle is the only place I can say I am tired without someone offering me a solution.",
+      person: "Sunita",
+      where: "New Delhi",
     },
   },
 ];
 
 export const milestones = [
-  { year: "2002", title: "The seed of an idea", body: "A group of college friends in Bhopal begin weekend tuition classes for children in a nearby basti. No name, no plan — just a Sunday habit that refused to end." },
+  { year: "2002", title: "The seed of an idea", body: "A small group of friends in Delhi begin weekend tuition classes for children in a nearby basti. No name, no plan — just a Sunday habit that refused to end." },
   { year: "2006", title: "An informal collective", body: "The Sunday habit becomes a monthly pool of ₹500 each. Books, notebooks, one second-hand blackboard. Still no letterhead." },
-  { year: "2011", title: "A kitchen table beginning", body: "Registered as Love To Care Foundation. Five friends pool ₹2,000 a month to fund school supplies for 12 children in a Bhopal basti." },
-  { year: "2014", title: "First learning centre", body: "Opened in a two-room space near Karond, serving 60 first-generation learners with two teachers." },
-  { year: "2017", title: "Health circle", body: "Launched maternal health camps across 6 villages in partnership with local ASHA workers." },
+  { year: "2011", title: "Beyond the classroom", body: "First health camps and ration drives — organised out of a Hari Nagar living room, run entirely by volunteers." },
+  { year: "2014", title: "First learning centre", body: "Opened in a two-room space in North West Delhi, serving 60 first-generation learners with two teachers." },
+  { year: "2017", title: "Circles of care", body: "Launched maternal-health camps and the first women's support circles across six neighbourhoods." },
   { year: "2020", title: "Pandemic response", body: "Distributed 42,000 ration kits, moved learning to community radio, and lost two friends we will not forget." },
-  { year: "2023", title: "Livelihood cohort", body: "First 120 women graduated from the tailoring & digital literacy programme. 86% are still trading today." },
-  { year: "2026", title: "Where we are now", body: "Working across 9 states with 38 partner communities, a team of 46, and more questions than we started with." },
+  { year: "2023", title: "Livelihood cohort", body: "First 120 women graduated from the tailoring & digital-literacy programme. 86% are still trading today." },
+  { year: "2026", title: "Formally, Luv 2 Care Foundation", body: "Registered as a Section 8 company in Delhi by Prerna Mishra and Rajesh — the same work, now with a letterhead." },
 ];
 
 export type Article = {
@@ -194,8 +196,8 @@ export const articles: Article[] = [
     title: "Why quiet work lasts longer than loud campaigns",
     kicker: "Field notes",
     minutes: 6,
-    dek: "A year of listening in one district taught us more than a decade of dashboards.",
-    author: "Ritu Mehta",
+    dek: "A year of listening in one Delhi neighbourhood taught us more than a decade of dashboards.",
+    author: "Prerna Mishra",
     date: "March 2026",
     body: [
       "We spent the whole of 2024 not launching anything. It felt terrible.",
@@ -212,7 +214,7 @@ export const articles: Article[] = [
     kicker: "Case study",
     minutes: 9,
     dek: "The revolving fund worked. The graduation ceremony did not. Here is what we changed.",
-    author: "Amol Verma",
+    author: "Rajesh",
     date: "January 2026",
     body: [
       "In 2023 we ran our first revolving fund — ₹8 lakh, disbursed as micro-loans of ₹5,000 to ₹25,000, no collateral, only a co-signature from two other cohort members.",
@@ -227,11 +229,11 @@ export const articles: Article[] = [
     kicker: "Report",
     minutes: 4,
     dek: "12,400 lives touched, 38 partner communities, one team learning out loud.",
-    author: "LTCF Team",
+    author: "L2CF Team",
     date: "December 2025",
     body: [
       "This report is shorter than last year's on purpose. We would rather you read one page well than skim ten.",
-      "The financial section is unchanged in format from 2020. Every rupee is accounted for on page four. Our audit is by Chaturvedi & Co. and is public on the site.",
+      "The financial section is unchanged in format from 2020. Every rupee is accounted for on page four.",
       "The narrative section is longer than usual — because 2025 was the year our theory of change actually changed. We used to believe programmes made communities stronger. We now believe communities make programmes possible, and we say so in section two.",
       "As always, we welcome your questions, your disagreements, and your time.",
     ],
