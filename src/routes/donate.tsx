@@ -98,7 +98,7 @@ function Donate() {
               <h3 className="text-lg font-semibold">Bank transfer</h3>
             </div>
             <dl className="mt-6 space-y-2 text-sm">
-              <div className="flex justify-between"><dt className="text-cream/60">Account</dt><dd>LTCF Public Trust</dd></div>
+              <div className="flex justify-between"><dt className="text-cream/60">Account</dt><dd>Luv 2 Care Foundation</dd></div>
               <div className="flex justify-between"><dt className="text-cream/60">A/C no.</dt><dd>0000 0000 0000</dd></div>
               <div className="flex justify-between"><dt className="text-cream/60">IFSC</dt><dd>XXXX0000000</dd></div>
               <div className="flex justify-between"><dt className="text-cream/60">Bank</dt><dd>State Bank of India</dd></div>
