@@ -72,6 +72,17 @@ export function Footer() {
             Built with care · {site.short}
           </p>
         </div>
+
+        <div className="mt-6 flex items-center justify-center gap-2">
+          <img src={setuprLogo.url} alt="Setupr" className="h-4 w-4 object-contain rounded-sm" />
+          <div className="text-xs leading-tight text-cream/40">
+            <span>Developed by <span className="text-cream/60 font-medium">Setupr</span></span>
+            <br />
+            <a href="https://setupr.com" target="_blank" rel="noopener noreferrer" className="text-cream/40 hover:text-lavender transition-colors">
+              setupr.com
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
