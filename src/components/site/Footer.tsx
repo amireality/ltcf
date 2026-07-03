@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Heart, Instagram, Linkedin, Youtube } from "lucide-react";
 import { nav, site } from "@/content/site";
+import setuprLogo from "@/assets/setupr-logo.png.asset.json";
 
 export function Footer() {
   return (
