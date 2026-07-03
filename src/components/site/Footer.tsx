@@ -64,17 +64,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-cream/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <a href="https://setupr.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-cream/40 hover:text-lavender transition-colors">
+        <div className="mt-16 pt-8 border-t border-cream/10 flex flex-col gap-3">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <p className="text-xs text-cream/40">
+              Built with care · {site.short}
+            </p>
+            <p className="text-xs text-cream/50">
+              © {new Date().getFullYear()} {site.name}. A registered non-profit. All rights reserved.
+            </p>
+          </div>
+          <a href="https://setupr.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-cream/40 hover:text-lavender transition-colors">
             <span>Developed by <span className="font-medium">Setupr</span></span>
             <img src={setuprLogo.url} alt="Setupr" className="h-4 w-4 object-contain rounded-sm" />
           </a>
-          <p className="text-xs text-cream/40">
-            Built with care · {site.short}
-          </p>
-          <p className="text-xs text-cream/50">
-            © {new Date().getFullYear()} {site.name}. A registered non-profit. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
