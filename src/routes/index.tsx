@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Heart } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
+import { Logo } from "@/components/site/Logo";
 import { StatCounter } from "@/components/site/StatCounter";
 import { FadeUp } from "@/components/site/FadeUp";
 import { JourneyScroll } from "@/components/site/JourneyScroll";
@@ -19,79 +20,96 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const toneMap: Record<string, string> = {
-  lavender: "bg-lavender/25 text-ink",
-  teal: "bg-teal/15 text-teal-deep",
-  terracotta: "bg-terracotta/20 text-ink",
-  mustard: "bg-mustard/25 text-ink",
-  sage: "bg-sage/25 text-ink",
+const solidToneBg: Record<string, string> = {
+  purple: "bg-purple text-cream",
+  yellow: "bg-yellow text-ink",
+  red: "bg-red text-cream",
+  orange: "bg-orange text-ink",
+  green: "bg-green text-cream",
 };
 
 function Home() {
   return (
     <SiteShell>
-      {/* HERO — layered editorial composition */}
-      <section className="relative overflow-hidden bg-cream">
-        <div className="pointer-events-none absolute -top-24 -right-24 h-[420px] w-[420px] rounded-full bg-lavender/25 blur-3xl" />
+      {/* NEW HERO — Full screen GIF with centered logo */}
+      <section className="relative flex min-h-[100vh] items-start justify-center overflow-hidden bg-cream pt-[15vh] md:pt-[20vh]">
+        {/* Stretched GIF Background */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[10s]"
+          style={{ backgroundImage: "url('/hero-animation.gif')" }}
+        />
+        
+        {/* Centered Logo and Foundation Name - Moved up and scaled down */}
+        <div className="relative z-10 flex flex-col items-center">
+          <Logo stacked className="scale-110 md:scale-125 drop-shadow-lg" />
+          <p className="mt-8 md:mt-10 text-base md:text-lg text-ink font-medium tracking-wide drop-shadow-sm">
+            Restoring dignity through shared action.
+          </p>
+        </div>
+      </section>
+
+      {/* ORIGINAL HERO CONTENT — Shifted Down */}
+      <section className="relative overflow-hidden bg-purple text-cream">
+        <div className="pointer-events-none absolute -top-24 -right-24 h-[420px] w-[420px] rounded-full bg-white/10 blur-3xl" />
         <div className="container-ltcf relative pt-14 md:pt-24 pb-28 md:pb-40">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
             {/* Narrative */}
             <div className="lg:col-span-6 space-y-10">
               <div className="space-y-5">
                 <div className="flex items-center gap-4">
-                  <span className="h-px w-12 bg-lavender" />
-                  <p className="text-xs font-bold tracking-[0.22em] uppercase text-ink">
+                  <span className="h-px w-12 bg-cream" />
+                  <p className="text-xs font-bold tracking-[0.22em] uppercase text-cream/70">
                     EST. 2002 · 24 YEARS OF QUIET WORK
                   </p>
                 </div>
-                <h1 className="text-ink text-5xl md:text-6xl lg:text-[76px] font-semibold leading-[0.95] tracking-[-0.03em]">
+                <h1 className="text-cream text-5xl md:text-6xl lg:text-[76px] font-semibold leading-[0.95] tracking-[-0.03em]">
                   Restoring{" "}
-                  <span className="text-lavender italic font-light">dignity</span>
+                  <span className="text-yellow italic font-light">dignity</span>
                   <br />
                   through shared action.
                 </h1>
               </div>
 
-              <p className="text-lg md:text-xl text-foreground/70 max-w-lg leading-relaxed">
+              <p className="text-lg md:text-xl text-cream/80 max-w-lg leading-relaxed">
                 {site.mission}
               </p>
 
               <div className="flex flex-wrap gap-5 items-center">
                 <Link
                   to="/donate"
-                  className="group inline-flex items-center gap-2 rounded-sm bg-teal px-8 py-4 text-sm font-bold tracking-tight text-primary-foreground shadow-xl shadow-teal/20 hover:-translate-y-0.5 transition-all"
+                  className="group inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold tracking-tight text-primary-foreground shadow-xl shadow-primary/20 hover:-translate-y-0.5 transition-all"
                 >
-                  Donate
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  I want to help
+                  <Heart className="h-4 w-4 fill-current animate-bounce text-red-500" style={{ color: "var(--color-accent)" }} />
                 </Link>
                 <Link
                   to="/who-we-are"
-                  className="group inline-flex items-center gap-3 text-sm font-bold tracking-tight text-ink"
+                  className="group inline-flex items-center gap-3 text-sm font-bold tracking-tight text-cream"
                 >
-                  <span className="h-12 w-12 grid place-items-center rounded-full border border-ink/20 group-hover:bg-lavender/15 transition-colors">
+                  <span className="h-12 w-12 grid place-items-center rounded-full border border-cream/20 group-hover:bg-cream/10 transition-colors">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                   Our story
                 </Link>
               </div>
 
-              <div className="pt-8 flex gap-12 border-t border-ink/10">
+              <div className="pt-8 flex gap-12 border-t border-cream/10">
                 <div>
-                  <p className="text-2xl font-bold text-ink">06</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                  <p className="text-2xl font-bold text-cream">06</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-cream/60 font-semibold">
                     Impact themes
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-2xl font-bold text-ink">9 states</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                  <p className="text-2xl font-bold text-cream">9 states</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-cream/60 font-semibold">
                     On the ground
                   </p>
                 </div>
                 <div className="hidden sm:block">
-                  <p className="text-2xl font-bold text-ink">₹0 comms</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground font-semibold">
+                  <p className="text-2xl font-bold text-cream">₹0 comms</p>
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-cream/60 font-semibold">
                     No ad spend, ever
                   </p>
                 </div>
@@ -101,7 +119,7 @@ function Home() {
             {/* Visual */}
             <div className="lg:col-span-6 relative flex items-center justify-center min-h-[520px]">
               <div className="relative z-10 w-full max-w-md aspect-[3/4] group">
-                <div className="absolute -inset-4 border-2 border-lavender -z-10 translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
+                <div className="absolute -inset-4 border-2 border-primary -z-10 translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2" />
                 <div className="tinted-photo h-full w-full overflow-hidden">
                   <HeroCarousel />
                 </div>
@@ -123,7 +141,7 @@ function Home() {
 
 
       {/* STATS */}
-      <section className="border-y border-border/60 bg-background">
+      <section className="bg-yellow text-ink border-y border-ink/10">
         <div className="container-ltcf py-16 md:py-20">
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
             {stats.map((s) => (
@@ -134,42 +152,54 @@ function Home() {
       </section>
 
       {/* THEMES */}
-      <section className="container-ltcf py-24 md:py-32">
-        <div className="grid gap-14 md:grid-cols-[1fr_1.4fr] md:items-end">
-          <div>
-            <span className="eyebrow">What we do</span>
-            <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
-              Six threads, one fabric of care.
-            </h2>
+      <section className="bg-ink text-cream py-24 md:py-32">
+        <div className="container-ltcf">
+          <div className="grid gap-14 md:grid-cols-[1fr_1.4fr] md:items-end">
+            <div>
+              <span className="eyebrow !text-yellow">What we do</span>
+              <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-cream">
+                Six threads, one fabric of care.
+              </h2>
+            </div>
+            <p className="text-lg text-cream/70 leading-relaxed max-w-xl">
+              Our themes are the ways communities have told us they want to be
+              supported. Each one is a long conversation, not a project.
+            </p>
           </div>
-          <p className="text-lg text-foreground/70 leading-relaxed max-w-xl">
-            Our themes are the ways communities have told us they want to be
-            supported. Each one is a long conversation, not a project.
-          </p>
-        </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {themes.map((t, i) => (
             <FadeUp key={t.slug} delay={i * 0.05}>
               <Link
                 to="/impact/$slug"
                 params={{ slug: t.slug }}
-                className="group block h-full rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-lg hover:border-teal/40"
+                className={`group block h-full rounded-3xl p-7 transition-all hover:-translate-y-1 hover:shadow-xl ${solidToneBg[t.tone]}`}
               >
                 <span
-                  className={`inline-flex h-9 items-center rounded-full px-3.5 text-xs font-semibold uppercase tracking-[0.14em] ${toneMap[t.tone]}`}
+                  className="inline-flex h-9 items-center rounded-full px-3.5 text-xs font-bold uppercase tracking-[0.14em] bg-white/20 border border-white/20"
                 >
                   0{i + 1}
                 </span>
-                <h3 className="mt-6 text-2xl font-semibold tracking-tight">{t.title}</h3>
-                <p className="mt-3 text-sm text-foreground/70 leading-relaxed">{t.summary}</p>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-teal">
+                
+                <div className="relative mt-4 h-32 w-full overflow-visible">
+                  <div className="absolute -inset-4 rounded-xl bg-black/10 -z-10 blur-md opacity-50" />
+                  <img 
+                    src={t.image} 
+                    alt="Theme visual" 
+                    className="absolute -top-4 left-4 h-36 w-11/12 object-cover rounded-xl shadow-lg transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-105" 
+                  />
+                </div>
+
+                <h3 className="mt-8 text-2xl font-bold tracking-tight">{t.title}</h3>
+                <p className="mt-3 text-sm opacity-80 leading-relaxed">{t.summary}</p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-bold">
                   Read more
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </span>
               </Link>
             </FadeUp>
           ))}
+          </div>
         </div>
       </section>
 
@@ -177,17 +207,17 @@ function Home() {
       <JourneyScroll />
 
       {/* JOURNEY CTA */}
-      <section className="bg-cream border-b border-border/60">
+      <section className="bg-red text-cream border-b border-white/10">
         <div className="container-ltcf py-16 md:py-20 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
-            <span className="eyebrow">Since 2002</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">
+            <span className="eyebrow !text-cream">Since 2002</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-cream">
               Twenty-four years of quiet, community-first work.
             </h2>
           </div>
           <Link
-            to="/who-we-are"
-            className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-background px-6 py-3.5 text-sm font-semibold hover:border-ink/50 transition-colors"
+            to="/what-we-do"
+            className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-black/10 px-6 py-3.5 text-sm font-semibold hover:bg-black/20 transition-colors"
           >
             Read the full story <ArrowRight className="h-4 w-4" />
           </Link>
@@ -195,50 +225,15 @@ function Home() {
       </section>
 
 
-      {/* KNOWLEDGE */}
-      <section className="container-ltcf py-24 md:py-32">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <span className="eyebrow">Knowledge Center</span>
-            <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
-              Field notes & reports.
-            </h2>
-          </div>
-          <Link to="/knowledge" className="inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-teal-deep">
-            See all writing <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {articles.map((a, i) => (
-            <FadeUp key={a.slug} delay={i * 0.06}>
-              <Link
-                to="/knowledge/$slug"
-                params={{ slug: a.slug }}
-                className="group block h-full rounded-3xl bg-card border border-border p-7 hover:border-teal/40 hover:shadow-md transition-all"
-              >
-                <p className="text-xs uppercase tracking-[0.18em] text-teal font-semibold">{a.kicker} · {a.minutes} min read</p>
-                <h3 className="mt-5 text-xl font-semibold tracking-tight leading-snug group-hover:text-teal-deep transition-colors">
-                  {a.title}
-                </h3>
-                <p className="mt-3 text-sm text-foreground/65 leading-relaxed line-clamp-3">{a.dek}</p>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/70">
-                  Read <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
-            </FadeUp>
-          ))}
-        </div>
-      </section>
 
       {/* CTA */}
-      <section className="container-ltcf pb-24 md:pb-32">
-        <div className="relative overflow-hidden rounded-[32px] bg-ink text-cream p-10 md:p-16">
-          <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-lavender/40 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-teal/40 blur-3xl" />
-          <div className="relative grid gap-10 md:grid-cols-[1.4fr_1fr] md:items-end">
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-lavender">Stand with us</span>
+      <section className="bg-orange text-ink pb-24 md:pb-32 pt-16">
+        <div className="container-ltcf">
+          <div className="relative overflow-hidden rounded-[32px] bg-white/10 border border-white/20 p-10 md:p-16 shadow-xl">
+            <div className="relative grid gap-10 md:grid-cols-[1.4fr_1fr] md:items-end z-10">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-ink/70">Stand with us</span>
               <h2 className="mt-5 text-4xl md:text-5xl font-semibold tracking-tight">
                 Every act of care compounds.
               </h2>
@@ -247,13 +242,15 @@ function Home() {
                 the company you keep it.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 md:justify-end">
-              <Link to="/donate" className="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3.5 text-sm font-semibold text-ink hover:bg-cream/90 transition-colors">
-                Donate <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-cream/25 px-6 py-3.5 text-sm font-semibold text-cream hover:border-cream/60 transition-colors">
-                Volunteer
-              </Link>
+              <div className="flex flex-wrap gap-3 md:justify-end">
+                <Link to="/donate" className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-bold text-cream hover:bg-ink/90 transition-colors shadow-lg">
+                  I want to help
+                  <Heart className="h-4 w-4 fill-current animate-bounce text-red-500" />
+                </Link>
+                <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-ink/25 bg-white/10 px-6 py-3.5 text-sm font-bold text-ink hover:border-ink/60 transition-colors">
+                  Volunteer
+                </Link>
+              </div>
             </div>
           </div>
         </div>

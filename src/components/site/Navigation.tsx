@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Heart } from "lucide-react";
 import { nav, site } from "@/content/site";
+import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
 export function Navigation() {
@@ -18,29 +19,36 @@ export function Navigation() {
 
   useEffect(() => setOpen(false), [pathname]);
 
+  const isHome = pathname === "/";
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-border/60"
-          : "bg-transparent",
+          ? "bg-background/95 backdrop-blur-md border-b border-border/60 py-0"
+          : isHome
+          ? "bg-transparent py-4"
+          : "bg-background py-0"
       )}
     >
       <div className="container-ltcf flex h-16 items-center justify-between md:h-20">
-        <Link to="/" className="flex items-center gap-2.5 group">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-lavender text-ink transition-transform group-hover:-rotate-6">
-            <Heart className="h-4 w-4 fill-current" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              {site.short} · {site.location}
-            </span>
-          </span>
+        {/* Logo - Hidden on home page until scrolled */}
+        <Link 
+          to="/" 
+          className={cn(
+            "flex items-center gap-2.5 group transition-all duration-300",
+            isHome && !scrolled ? "opacity-0 pointer-events-none w-0 md:w-auto overflow-hidden" : "opacity-100 w-auto"
+          )}
+        >
+          <Logo />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        {/* Navigation Links - Centered on Home when not scrolled */}
+        <nav className={cn(
+          "hidden md:flex items-center gap-1 transition-all duration-300",
+          isHome && !scrolled ? "flex-1 justify-center" : ""
+        )}>
           {nav.map((item) => {
             const active = pathname === item.to || (item.to !== "/" && pathname.startsWith(item.to));
             return (
@@ -49,12 +57,12 @@ export function Navigation() {
                 to={item.to}
                 className={cn(
                   "relative px-3.5 py-2 text-sm font-medium transition-colors",
-                  active ? "text-teal" : "text-foreground/70 hover:text-foreground",
+                  active ? "text-primary" : "text-foreground/70 hover:text-foreground",
                 )}
               >
                 {item.label}
                 {active && (
-                  <span className="absolute left-3.5 right-3.5 -bottom-0.5 h-px bg-teal" />
+                  <span className="absolute left-3.5 right-3.5 -bottom-0.5 h-px bg-primary" />
                 )}
               </Link>
             );
@@ -64,10 +72,10 @@ export function Navigation() {
         <div className="hidden md:block">
           <Link
             to="/donate"
-            className="inline-flex items-center gap-2 rounded-full bg-teal px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-teal-deep hover:shadow-md"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
           >
-            Donate
-            <span aria-hidden>→</span>
+            I want to help
+            <Heart className="h-4 w-4 fill-current animate-bounce text-red-500" style={{ color: "var(--color-accent)" }} />
           </Link>
         </div>
 
@@ -87,16 +95,17 @@ export function Navigation() {
               <Link
                 key={item.to}
                 to={item.to}
-                className="px-2 py-3 text-base font-medium text-foreground/80 hover:text-teal"
+                className="px-2 py-3 text-base font-medium text-foreground/80 hover:text-primary"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               to="/donate"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-teal px-5 py-3 text-sm font-semibold text-primary-foreground"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
             >
-              Donate
+              I want to help
+              <Heart className="h-4 w-4 fill-current animate-bounce text-red-500" style={{ color: "var(--color-accent)" }} />
             </Link>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Heart, Instagram, Linkedin, Youtube } from "lucide-react";
 import { nav, site } from "@/content/site";
+import { Logo } from "./Logo";
 import setuprLogo from "@/assets/setupr-logo.png.asset.json";
 
 export function Footer() {
@@ -9,11 +10,8 @@ export function Footer() {
       <div className="container-ltcf py-16 md:py-24">
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link to="/" className="inline-flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-lavender text-ink">
-                <Heart className="h-4 w-4 fill-current" />
-              </span>
-              <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
+            <Link to="/" className="inline-block hover:opacity-90 transition-opacity">
+              <Logo lightText />
             </Link>
             <p className="mt-5 max-w-sm text-sm text-cream/70 leading-relaxed">
               {site.mission}

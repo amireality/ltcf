@@ -46,15 +46,21 @@
 
   /* LTCF brand tokens */
   --color-lavender: var(--lavender);
-  --color-lavender-soft: var(--lavender-soft);
-  --color-teal: var(--teal);
-  --color-teal-deep: var(--teal-deep);
-  --color-cream: var(--cream);
+  --color-purple: var(--purple);
+  --color-teal: var(--green);
+  --color-teal-deep: oklch(0.40 0.15 150);
+  --color-cream: var(--white);
   --color-ink: var(--ink);
   --color-slate-deep: var(--slate-deep);
-  --color-terracotta: var(--terracotta);
-  --color-mustard: var(--mustard);
-  --color-sage: var(--sage);
+  --color-terracotta: var(--orange);
+  --color-mustard: var(--yellow);
+  --color-sage: oklch(0.80 0.15 130);
+  
+  /* Solid Vibrant Colors */
+  --color-yellow: var(--yellow);
+  --color-red: var(--red);
+  --color-orange: var(--orange);
+  --color-green: var(--green);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -66,43 +72,49 @@
 :root {
   --radius: 0.75rem;
 
-  /* LTCF palette — approximations of the spec hex codes in oklch */
-  --lavender: oklch(0.755 0.062 305);        /* #B8A4D4 */
-  --lavender-soft: oklch(0.93 0.028 305);    /* soft wash */
-  --teal: oklch(0.55 0.09 190);              /* #2A8C82 CTA */
-  --teal-deep: oklch(0.42 0.075 190);
-  --cream: oklch(0.985 0.008 90);            /* #FBF9F4 canvas */
-  --ink: oklch(0.22 0.02 260);               /* #1F2A37 body */
-  --slate-deep: oklch(0.28 0.03 260);        /* footer bg */
-  --terracotta: oklch(0.68 0.13 42);         /* #C97B5F accent */
-  --mustard: oklch(0.78 0.13 82);            /* #D6A54A accent */
-  --sage: oklch(0.72 0.06 150);              /* #7FA88C accent */
+  /* LTCF palette — Client requested Purple/Lavender, Yellow, Red */
+  --purple: oklch(0.40 0.20 290);            /* Logo Purple */
+  --lavender: oklch(0.85 0.10 290);          /* Light Purple */
+  --yellow: oklch(0.85 0.20 95);             /* Logo Yellow */
+  --orange: oklch(0.65 0.22 45);             /* Bright Orange */
+  --green: oklch(0.60 0.15 150);             /* Bright Green */
+  --red: oklch(0.60 0.25 30);                /* Bright Red Accent */
+  
+  --white: oklch(1 0 0);                     /* Pure White */
+  --ink: oklch(0.15 0.02 260);               /* Almost Black Body */
+  --slate-deep: oklch(0.35 0.03 260);        /* Grey */
 
-  --background: var(--cream);
+  --background: var(--white);
   --foreground: var(--ink);
-  --card: oklch(1 0 0);
+  --card: var(--white);
   --card-foreground: var(--ink);
-  --popover: oklch(1 0 0);
+  --popover: var(--white);
   --popover-foreground: var(--ink);
-  --primary: var(--teal);
-  --primary-foreground: oklch(0.99 0.005 90);
-  --secondary: var(--lavender-soft);
+  
+  --primary: var(--purple);
+  --primary-foreground: var(--white);
+  
+  --secondary: var(--yellow);
   --secondary-foreground: var(--ink);
-  --muted: oklch(0.955 0.008 90);
-  --muted-foreground: oklch(0.48 0.02 260);
-  --accent: var(--lavender);
-  --accent-foreground: var(--ink);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0.005 90);
-  --border: oklch(0.9 0.012 90);
-  --input: oklch(0.9 0.012 90);
-  --ring: var(--teal);
+  
+  --muted: oklch(0.96 0.01 260);
+  --muted-foreground: oklch(0.50 0.03 260);
+  
+  --accent: var(--red);
+  --accent-foreground: var(--white);
+  
+  --destructive: var(--red);
+  --destructive-foreground: var(--white);
+  
+  --border: oklch(0.90 0.02 260);
+  --input: oklch(0.90 0.02 260);
+  --ring: var(--purple);
 
-  --chart-1: var(--lavender);
-  --chart-2: var(--teal);
-  --chart-3: var(--terracotta);
-  --chart-4: var(--mustard);
-  --chart-5: var(--sage);
+  --chart-1: var(--purple);
+  --chart-2: var(--yellow);
+  --chart-3: var(--orange);
+  --chart-4: var(--green);
+  --chart-5: var(--slate-deep);
 }
 
 .dark {
@@ -112,17 +124,22 @@
   --card-foreground: oklch(0.97 0.008 90);
   --popover: oklch(0.22 0.02 260);
   --popover-foreground: oklch(0.97 0.008 90);
-  --primary: var(--teal);
+  
+  --primary: var(--purple);
   --primary-foreground: oklch(0.99 0.005 90);
-  --secondary: oklch(0.28 0.03 260);
+  
+  --secondary: oklch(0.35 0.03 260);
   --secondary-foreground: oklch(0.97 0.008 90);
+  
   --muted: oklch(0.28 0.03 260);
   --muted-foreground: oklch(0.72 0.02 260);
-  --accent: var(--lavender);
-  --accent-foreground: var(--ink);
+  
+  --accent: var(--red);
+  --accent-foreground: var(--white);
+  
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: var(--teal);
+  --ring: var(--purple);
 }
 
 @layer base {
@@ -172,7 +189,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-teal);
+  color: var(--color-primary);
 }
 
 .eyebrow::before {

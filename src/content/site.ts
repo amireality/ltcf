@@ -21,9 +21,7 @@ export const site = {
 
 export const nav = [
   { to: "/", label: "Home" },
-  { to: "/impact", label: "Impact Themes" },
-  { to: "/who-we-are", label: "Who We Are" },
-  { to: "/knowledge", label: "Knowledge Center" },
+  { to: "/what-we-do", label: "What We Do" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -34,13 +32,14 @@ export const stats = [
   { value: 24, suffix: "", label: "Years of care" },
 ];
 
-export type Tone = "lavender" | "teal" | "terracotta" | "mustard" | "sage";
+export type Tone = "purple" | "yellow" | "red" | "orange" | "green";
 
 export type Theme = {
   slug: string;
   title: string;
   summary: string;
   tone: Tone;
+  image: string;
   lede: string;
   approach: string[];
   numbers: { value: string; label: string }[];
@@ -53,7 +52,8 @@ export const themes: Theme[] = [
     title: "Public Health & Wellbeing",
     summary:
       "Free camps, medicines and last-mile referrals — bringing healthcare where the system runs thin.",
-    tone: "teal",
+    tone: "green",
+    image: "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800&auto=format&fit=crop",
     lede: "We support hospitals, clinics and medical relief camps, and stand with individuals facing chronic illness, disability or medical emergencies. Prevention sits alongside treatment — sanitation, nutrition and hygiene are health work too.",
     approach: [
       "Free and subsidised medical treatment, medicines and equipment.",
@@ -77,7 +77,8 @@ export const themes: Theme[] = [
     title: "Education & Learning",
     summary:
       "Schools, libraries and skill centres — plus scholarships, uniforms and fee assistance for children who need them.",
-    tone: "lavender",
+    tone: "purple",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
     lede: "We establish, support and run learning spaces from libraries to vocational institutes. Scholarships, materials and adult literacy sit alongside seminars, counselling and career workshops for young people.",
     approach: [
       "Scholarships, uniforms and fee assistance for students from EWS backgrounds.",
@@ -101,7 +102,8 @@ export const themes: Theme[] = [
     title: "Social Welfare & Relief",
     summary:
       "Food, clothing and shelter for the poor, homeless and elderly — and relief when disasters strike.",
-    tone: "mustard",
+    tone: "yellow",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop",
     lede: "We provide relief to underprivileged groups and support welfare initiatives during natural calamities, disasters and emergencies. Orphanages, old-age homes and community centres are long-standing partners.",
     approach: [
       "Ration, clothing and shelter drives for the homeless and elderly.",
@@ -124,7 +126,8 @@ export const themes: Theme[] = [
     title: "Animal Welfare",
     summary:
       "Rescue, treatment and rehabilitation of injured, abandoned and stray animals — with vaccination and sterilisation drives.",
-    tone: "sage",
+    tone: "orange",
+    image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=800&auto=format&fit=crop",
     lede: "We work with veterinary institutions, government bodies and neighbourhood volunteers to care for the animals who share our streets. Awareness campaigns run alongside on-ground rescues.",
     approach: [
       "Rescue, treatment and shelter for injured or abandoned animals.",
@@ -147,7 +150,8 @@ export const themes: Theme[] = [
     title: "Mental Health & Wellbeing",
     summary:
       "Counselling, helplines and support groups — plus yoga, meditation and mind-body practices for holistic health.",
-    tone: "terracotta",
+    tone: "red",
+    image: "https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?q=80&w=800&auto=format&fit=crop",
     lede: "Emotional well-being is health. We help set up counselling centres, helplines and support groups, and run workshops on yoga, meditation and mind-body wellness for communities that rarely get to pause.",
     approach: [
       "Counselling centres, helplines and peer support groups.",
@@ -169,14 +173,14 @@ export const themes: Theme[] = [
 ];
 
 export const milestones = [
-  { year: "2002", title: "The seed of an idea", body: "A small group of friends in Delhi begin weekend tuition classes for children in a nearby basti. No name, no plan — just a Sunday habit that refused to end." },
-  { year: "2006", title: "An informal collective", body: "The Sunday habit becomes a monthly pool of ₹500 each. Books, notebooks, one second-hand blackboard. Still no letterhead." },
-  { year: "2011", title: "Beyond the classroom", body: "First health camps and ration drives — organised out of a Hari Nagar living room, run entirely by volunteers." },
-  { year: "2014", title: "First learning centre", body: "Opened in a two-room space in North West Delhi, serving 60 first-generation learners with two teachers." },
-  { year: "2017", title: "Circles of care", body: "Launched maternal-health camps and the first women's support circles across six neighbourhoods." },
-  { year: "2020", title: "Pandemic response", body: "Distributed 42,000 ration kits, moved learning to community radio, and lost two friends we will not forget." },
-  { year: "2023", title: "Livelihood cohort", body: "First 120 women graduated from the tailoring & digital-literacy programme. 86% are still trading today." },
-  { year: "2026", title: "Formally, Luv 2 Care Foundation", body: "Registered as a Section 8 company in Delhi by Prerna Mishra and Rajesh — the same work, now with a letterhead." },
+  { year: "2002", title: "The seed of an idea", body: "A small group of friends in Delhi begin weekend tuition classes for children in a nearby basti. No name, no plan — just a Sunday habit that refused to end.", image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1200&auto=format&fit=crop" },
+  { year: "2006", title: "An informal collective", body: "The Sunday habit becomes a monthly pool of ₹500 each. Books, notebooks, one second-hand blackboard. Still no letterhead.", image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1200&auto=format&fit=crop" },
+  { year: "2011", title: "Beyond the classroom", body: "First health camps and ration drives — organised out of a Hari Nagar living room, run entirely by volunteers.", image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1200&auto=format&fit=crop" },
+  { year: "2014", title: "First learning centre", body: "Opened in a two-room space in North West Delhi, serving 60 first-generation learners with two teachers.", image: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=1200&auto=format&fit=crop" },
+  { year: "2017", title: "Circles of care", body: "Launched maternal-health camps and the first women's support circles across six neighbourhoods.", image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1200&auto=format&fit=crop" },
+  { year: "2020", title: "Pandemic response", body: "Distributed 42,000 ration kits, moved learning to community radio, and lost two friends we will not forget.", image: "https://images.unsplash.com/photo-1584483766114-2cea6facdf57?q=80&w=1200&auto=format&fit=crop" },
+  { year: "2023", title: "Livelihood cohort", body: "First 120 women graduated from the tailoring & digital-literacy programme. 86% are still trading today.", image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=1200&auto=format&fit=crop" },
+  { year: "2026", title: "Formally, Luv 2 Care Foundation", body: "Registered as a Section 8 company in Delhi by Prerna Mishra and Rajesh — the same work, now with a letterhead.", image: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1200&auto=format&fit=crop" },
 ];
 
 export type Article = {

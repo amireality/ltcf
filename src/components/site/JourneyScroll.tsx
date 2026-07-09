@@ -31,7 +31,7 @@ export function JourneyScroll() {
       className="relative bg-ink text-cream"
       style={{ height: `${runwayVh}vh` }}
     >
-      <div className="sticky top-[25vh] h-[50vh] overflow-hidden">
+      <div className="sticky top-[10vh] h-[80vh] overflow-hidden">
         <div className="container-ltcf h-full grid grid-cols-[auto_1fr] gap-8 md:gap-20 items-center">
           {/* Vertical line + year */}
           <div className="relative h-full w-24 md:w-40 flex items-center justify-center">
@@ -40,7 +40,7 @@ export function JourneyScroll() {
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-24 w-px bg-gradient-to-t from-ink to-transparent z-10" />
 
             <div className="relative h-40 md:h-56 w-full grid place-items-center">
-              <span className="absolute left-1/2 -translate-x-1/2 h-3 w-3 rounded-full bg-teal ring-8 ring-ink z-20" />
+              <span className="absolute left-1/2 -translate-x-1/2 h-4 w-4 rounded-full bg-primary ring-8 ring-ink z-20" />
               {milestones.map((m, i) => {
                 const state = i === active ? "current" : i < active ? "past" : "future";
                 return (
@@ -67,23 +67,30 @@ export function JourneyScroll() {
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink to-transparent z-10 pointer-events-none" />
             <div className="relative h-full flex items-center">
               <div className="w-full max-w-xl">
-                <p className="text-xs uppercase tracking-[0.22em] text-lavender font-semibold">
+                <p className="text-xs uppercase tracking-[0.22em] text-primary font-semibold">
                   Our journey · since 2002
                 </p>
-                <div className="relative mt-6 h-56">
+                <div className="relative mt-6 h-[450px] md:h-[400px]">
                   {milestones.map((m, i) => {
                     const state = i === active ? "current" : i < active ? "past" : "future";
                     return (
                       <div
                         key={m.year}
-                        className={`absolute inset-0 transition-all duration-700 ease-out ${
+                        className={`absolute inset-0 transition-all duration-700 ease-out flex flex-col justify-center ${
                           state === "current"
-                            ? "opacity-100 translate-y-0"
+                            ? "opacity-100 translate-y-0 z-10"
                             : state === "past"
-                              ? "opacity-0 -translate-y-16"
-                              : "opacity-0 translate-y-16"
+                              ? "opacity-0 -translate-y-16 z-0"
+                              : "opacity-0 translate-y-16 z-0"
                         }`}
                       >
+                        <div className="w-full h-40 md:h-56 mb-4 rounded-2xl overflow-hidden shadow-2xl relative border border-white/10 shrink-0">
+                          <img 
+                            src={m.image} 
+                            alt={m.title}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                        </div>
                         <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-cream">
                           {m.title}
                         </h3>
@@ -100,8 +107,8 @@ export function JourneyScroll() {
                   {milestones.map((m, i) => (
                     <span
                       key={m.year}
-                      className={`h-1 rounded-full transition-all duration-500 ${
-                        i === active ? "w-8 bg-lavender" : "w-4 bg-cream/20"
+                      className={`h-1.5 rounded-full transition-all duration-500 ${
+                        i === active ? "w-8 bg-primary" : "w-4 bg-cream/20"
                       }`}
                     />
                   ))}
