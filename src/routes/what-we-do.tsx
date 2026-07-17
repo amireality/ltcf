@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { FadeUp } from "@/components/site/FadeUp";
 import { milestones } from "@/content/site";
@@ -23,6 +24,7 @@ const solidToneBg: Record<string, string> = {
   red: "bg-red text-cream",
   orange: "bg-orange text-ink",
   green: "bg-green text-cream",
+  beige: "bg-[#F5F5DC] text-ink",
 };
 
 function WhatWeDo() {
@@ -147,6 +149,15 @@ function WhatWeDo() {
                       </li>
                     ))}
                   </ul>
+                </div>
+                <div className="mt-10">
+                  <Link
+                    to="/impact/$slug"
+                    params={{ slug: t.slug }}
+                    className="inline-flex items-center gap-2 rounded-full bg-black/10 border border-black/10 px-6 py-3.5 text-sm font-bold shadow-sm hover:bg-black/20 transition-colors"
+                  >
+                    Read full story <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
               </div>
               

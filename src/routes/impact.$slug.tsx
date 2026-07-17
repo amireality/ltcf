@@ -38,6 +38,7 @@ const solidBgMap: Record<string, string> = {
   red: "bg-red text-cream",
   orange: "bg-orange text-ink",
   green: "bg-green text-cream",
+  beige: "bg-[#F5F5DC] text-ink",
 };
 
 const cardBgMap: Record<string, string> = {
@@ -46,6 +47,7 @@ const cardBgMap: Record<string, string> = {
   red: "bg-white/10 border-white/20",
   orange: "bg-black/5 border-black/10",
   green: "bg-white/10 border-white/20",
+  beige: "bg-black/5 border-black/10",
 };
 
 const textMap: Record<string, string> = {
@@ -54,6 +56,7 @@ const textMap: Record<string, string> = {
   red: "text-cream",
   orange: "text-ink",
   green: "text-cream",
+  beige: "text-ink",
 };
 
 const mutedTextMap: Record<string, string> = {
@@ -62,6 +65,7 @@ const mutedTextMap: Record<string, string> = {
   red: "text-cream/70",
   orange: "text-ink/70",
   green: "text-cream/70",
+  beige: "text-ink/70",
 };
 
 function ThemePage() {
@@ -79,7 +83,7 @@ function ThemePage() {
         
         <div className="relative z-10">
           <section className="container-ltcf pt-14 md:pt-24 pb-16">
-            <Link to="/impact" className={`inline-flex items-center gap-1.5 text-sm ${tMuted} hover:${tColor} font-medium transition-colors`}>
+            <Link to="/#themes" className={`inline-flex items-center gap-1.5 text-sm ${tMuted} hover:${tColor} font-medium transition-colors`}>
               <ArrowLeft className="h-4 w-4" /> All themes
             </Link>
             <div className="mt-12">

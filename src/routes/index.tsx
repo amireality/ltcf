@@ -26,6 +26,7 @@ const solidToneBg: Record<string, string> = {
   red: "bg-red text-cream",
   orange: "bg-orange text-ink",
   green: "bg-green text-cream",
+  beige: "bg-[#F5F5DC] text-ink",
 };
 
 function Home() {
@@ -152,7 +153,7 @@ function Home() {
       </section>
 
       {/* THEMES */}
-      <section className="bg-ink text-cream py-24 md:py-32">
+      <section id="themes" className="bg-ink text-cream py-24 md:py-32">
         <div className="container-ltcf">
           <div className="grid gap-14 md:grid-cols-[1fr_1.4fr] md:items-end">
             <div>
