@@ -43,7 +43,7 @@ function Home() {
         {/* Centered Logo and Foundation Name - Moved up and scaled down */}
         <div className="relative z-10 flex flex-col items-center">
           <Logo stacked className="scale-110 md:scale-125 drop-shadow-lg" />
-          <p className="mt-8 md:mt-10 text-base md:text-lg text-ink font-medium tracking-wide drop-shadow-sm">
+          <p className="mt-2 md:mt-3 text-base md:text-lg text-ink font-medium tracking-wide drop-shadow-sm">
             Restoring dignity through shared action.
           </p>
         </div>
