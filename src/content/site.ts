@@ -150,7 +150,7 @@ export const themes: Theme[] = [
     title: "Mental Health & Wellbeing",
     summary:
       "Counselling, helplines and support groups — plus yoga, meditation and mind-body practices for holistic health.",
-    tone: "red",
+    tone: "beige",
     image: "https://images.unsplash.com/photo-1527137342181-19aab11a8ee8?q=80&w=800&auto=format&fit=crop",
     lede: "Emotional well-being is health. We help set up counselling centres, helplines and support groups, and run workshops on yoga, meditation and mind-body wellness for communities that rarely get to pause.",
     approach: [

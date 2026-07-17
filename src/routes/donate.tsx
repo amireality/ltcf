@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, QrCode, Link as LinkIcon } from "lucide-react";
+import { Heart, QrCode, Link as LinkIcon, Calendar, Wallet } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import donateHero from "@/assets/donate_hero.png.asset.json";
+import { Notch, type NotchItem } from "@/components/ui/notch";
+import { useState } from "react";
 
 export const Route = createFileRoute("/donate")({
   head: () => ({
@@ -18,6 +20,37 @@ export const Route = createFileRoute("/donate")({
 const amounts = [500, 1500, 3000, 7500];
 
 function Donate() {
+  const [frequency, setFrequency] = useState("one-time");
+  const [currency, setCurrency] = useState("inr");
+
+  const notchItems: NotchItem[] = [
+    {
+      id: "frequency",
+      label: "Frequency",
+      icon: <Calendar className="h-4 w-4" />,
+      options: [
+        { id: "one-time", label: "One-time" },
+        { id: "monthly", label: "Monthly" },
+        { id: "yearly", label: "Yearly" },
+      ],
+      value: frequency,
+      onChange: (id) => setFrequency(id),
+    },
+    {
+      id: "currency",
+      label: "Currency",
+      icon: <Wallet className="h-4 w-4" />,
+      options: [
+        { id: "inr", label: "INR (₹)" },
+        { id: "usd", label: "USD ($)" },
+        { id: "gbp", label: "GBP (£)" },
+        { id: "eur", label: "EUR (€)" },
+      ],
+      value: currency,
+      onChange: (id) => setCurrency(id),
+    },
+  ];
+
   return (
     <SiteShell>
       {/* HERO with background image */}
@@ -45,9 +78,7 @@ function Donate() {
         </div>
       </section>
 
-
-
-      <section className="container-ltcf pb-24 md:pb-32 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+      <section className="container-ltcf pb-24 md:pb-32 pt-16 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
         <div className="rounded-3xl bg-card border border-border p-8 md:p-10">
           <h2 className="text-2xl font-semibold tracking-tight">Choose an amount</h2>
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -56,14 +87,16 @@ function Donate() {
                 key={a}
                 className="rounded-2xl border border-border px-4 py-5 text-center hover:border-teal hover:bg-teal/5 transition-colors"
               >
-                <span className="block text-2xl font-semibold">₹{a.toLocaleString("en-IN")}</span>
-                <span className="block text-xs text-muted-foreground mt-1">One-time</span>
+                <span className="block text-2xl font-semibold">
+                  {currency === "inr" ? "₹" : currency === "usd" ? "$" : currency === "gbp" ? "£" : "€"}{a.toLocaleString()}
+                </span>
+                <span className="block text-xs text-muted-foreground mt-1 capitalize">{frequency}</span>
               </button>
             ))}
           </div>
           <div className="mt-6">
             <label className="block">
-              <span className="text-xs uppercase tracking-[0.14em] font-semibold text-muted-foreground">Or a custom amount (₹)</span>
+              <span className="text-xs uppercase tracking-[0.14em] font-semibold text-muted-foreground">Or a custom amount</span>
               <input type="number" min={100} className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40" placeholder="1000" />
             </label>
           </div>
@@ -106,6 +139,8 @@ function Donate() {
           </div>
         </div>
       </section>
+      
+      <Notch items={notchItems} position="bottom" accentColor="#14b8a6" />
     </SiteShell>
   );
 }
