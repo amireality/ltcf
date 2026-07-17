@@ -33,7 +33,7 @@ function Home() {
   return (
     <SiteShell>
       {/* NEW HERO — Full screen GIF with centered logo */}
-      <section className="relative flex min-h-[100vh] items-start justify-center overflow-hidden bg-cream pt-[15vh] md:pt-[20vh]">
+      <section className="relative flex min-h-[100vh] items-start justify-center overflow-hidden bg-cream pt-[12vh] md:pt-[15vh]">
         {/* Stretched GIF Background */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-[10s]"
@@ -42,8 +42,8 @@ function Home() {
         
         {/* Centered Logo and Foundation Name - Moved up and scaled down */}
         <div className="relative z-10 flex flex-col items-center">
-          <Logo stacked className="scale-100 md:scale-110 drop-shadow-lg" />
-          <p className="mt-1 md:mt-1.5 text-base md:text-lg text-ink font-medium tracking-wide drop-shadow-sm">
+          <Logo stacked className="scale-90 md:scale-95 drop-shadow-lg transform origin-top" />
+          <p className="mt-0 md:mt-1 text-base md:text-lg text-ink font-medium tracking-wide drop-shadow-sm">
             Restoring dignity through shared action.
           </p>
         </div>
