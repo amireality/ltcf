@@ -26,7 +26,7 @@ export function Navigation() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/40 backdrop-blur-xl border-b border-border/60 py-0"
+          ? "bg-[#ffffff]/70 backdrop-blur-xl border-b border-border/60 py-0"
           : isHome
           ? "bg-transparent py-4"
           : "bg-background py-0"
